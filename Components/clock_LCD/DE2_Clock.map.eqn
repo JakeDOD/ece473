@@ -1,0 +1,1230 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--A1L281Q is LCD_RS~reg0
+A1L281Q = DFFEAS(A1L622, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L871Q is LCD_E~reg0
+A1L871Q = DFFEAS(state.toggle_e, CLK_400HZ, !reset,  , !state.hold,  ,  ,  ,  );
+
+
+--BCD_SECD0[0] is BCD_SECD0[0]
+BCD_SECD0[0] = DFFEAS(A1L64, CLK_10HZ, !reset,  , A1L481,  ,  ,  ,  );
+
+
+--state.write_char1 is state.write_char1
+state.write_char1 = DFFEAS(A1L792, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.toggle_e is state.toggle_e
+state.toggle_e = DFFEAS(A1L181, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.hold is state.hold
+state.hold = DFFEAS(state.toggle_e, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L222 is Select~1602
+A1L222 = state.write_char1 # A1L281Q & (state.toggle_e # state.hold);
+
+
+--state.write_char2 is state.write_char2
+state.write_char2 = DFFEAS(A1L892, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char10 is state.write_char10
+state.write_char10 = DFFEAS(A1L992, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char4 is state.write_char4
+state.write_char4 = DFFEAS(A1L003, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char5 is state.write_char5
+state.write_char5 = DFFEAS(A1L103, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L322 is Select~1603
+A1L322 = state.write_char4 # state.write_char5;
+
+
+--state.write_char7 is state.write_char7
+state.write_char7 = DFFEAS(A1L203, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char8 is state.write_char8
+state.write_char8 = DFFEAS(A1L303, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L422 is Select~1604
+A1L422 = state.write_char10 # A1L322 # state.write_char7 # state.write_char8;
+
+
+--state.write_char3 is state.write_char3
+state.write_char3 = DFFEAS(A1L403, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char6 is state.write_char6
+state.write_char6 = DFFEAS(A1L503, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.write_char9 is state.write_char9
+state.write_char9 = DFFEAS(A1L603, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L522 is Select~1605
+A1L522 = !state.write_char3 & !state.write_char6 & !state.write_char9;
+
+
+--A1L622 is Select~1606
+A1L622 = A1L222 # state.write_char2 # A1L422 # !A1L522;
+
+
+--CLK_400HZ is CLK_400HZ
+CLK_400HZ = DFFEAS(A1L27, clk_50Mhz,  ,  ,  ,  ,  , !reset,  );
+
+
+--BCD_SECD0[3] is BCD_SECD0[3]
+BCD_SECD0[3] = DFFEAS(A1L74, CLK_10HZ, !reset,  , A1L481,  ,  ,  ,  );
+
+
+--BCD_SECD0[2] is BCD_SECD0[2]
+BCD_SECD0[2] = DFFEAS(A1L84, CLK_10HZ, !reset,  , A1L481,  ,  ,  ,  );
+
+
+--BCD_SECD0[1] is BCD_SECD0[1]
+BCD_SECD0[1] = DFFEAS(A1L94, CLK_10HZ, !reset,  , A1L481,  ,  ,  ,  );
+
+
+--A1L64 is BCD_SECD0~143
+A1L64 = !BCD_SECD0[0] & (!BCD_SECD0[2] & !BCD_SECD0[1] # !BCD_SECD0[3]);
+
+
+--CLK_10HZ is CLK_10HZ
+CLK_10HZ = DFFEAS(A1L96, CLK_400HZ,  ,  , A1L86,  ,  ,  ,  );
+
+
+--BCD_TSEC[2] is BCD_TSEC[2]
+BCD_TSEC[2] = DFFEAS(A1L36, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--BCD_TSEC[1] is BCD_TSEC[1]
+BCD_TSEC[1] = DFFEAS(A1L46, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--BCD_TSEC[0] is BCD_TSEC[0]
+BCD_TSEC[0] = DFFEAS(A1L56, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--BCD_TSEC[3] is BCD_TSEC[3]
+BCD_TSEC[3] = DFFEAS(A1L66, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L481 is LessThan~998
+A1L481 = BCD_TSEC[3] & (BCD_TSEC[2] # BCD_TSEC[1] # BCD_TSEC[0]);
+
+
+--next_command.write_char1 is next_command.write_char1
+next_command.write_char1 = DFFEAS(A1L372, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L792 is state~231
+A1L792 = state.hold & next_command.write_char1;
+
+
+--A1L181 is LCD_RS~28
+A1L181 = !state.toggle_e & !state.hold;
+
+
+--next_command.write_char2 is next_command.write_char2
+next_command.write_char2 = DFFEAS(A1L822, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L892 is state~232
+A1L892 = state.hold & next_command.write_char2;
+
+
+--next_command.write_char10 is next_command.write_char10
+next_command.write_char10 = DFFEAS(A1L922, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L992 is state~233
+A1L992 = state.hold & next_command.write_char10;
+
+
+--next_command.write_char4 is next_command.write_char4
+next_command.write_char4 = DFFEAS(A1L032, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L003 is state~234
+A1L003 = state.hold & next_command.write_char4;
+
+
+--next_command.write_char5 is next_command.write_char5
+next_command.write_char5 = DFFEAS(A1L132, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L103 is state~235
+A1L103 = state.hold & next_command.write_char5;
+
+
+--next_command.write_char7 is next_command.write_char7
+next_command.write_char7 = DFFEAS(A1L232, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L203 is state~236
+A1L203 = state.hold & next_command.write_char7;
+
+
+--next_command.write_char8 is next_command.write_char8
+next_command.write_char8 = DFFEAS(A1L332, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L303 is state~237
+A1L303 = state.hold & next_command.write_char8;
+
+
+--next_command.write_char3 is next_command.write_char3
+next_command.write_char3 = DFFEAS(A1L432, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L403 is state~238
+A1L403 = state.hold & next_command.write_char3;
+
+
+--next_command.write_char6 is next_command.write_char6
+next_command.write_char6 = DFFEAS(A1L532, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L503 is state~239
+A1L503 = state.hold & next_command.write_char6;
+
+
+--next_command.write_char9 is next_command.write_char9
+next_command.write_char9 = DFFEAS(A1L632, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L603 is state~240
+A1L603 = state.hold & next_command.write_char9;
+
+
+--CLK_COUNT_400HZ[16] is CLK_COUNT_400HZ[16]
+CLK_COUNT_400HZ[16] = DFFEAS(A1L941, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[17] is CLK_COUNT_400HZ[17]
+CLK_COUNT_400HZ[17] = DFFEAS(A1L251, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[18] is CLK_COUNT_400HZ[18]
+CLK_COUNT_400HZ[18] = DFFEAS(A1L551, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[19] is CLK_COUNT_400HZ[19]
+CLK_COUNT_400HZ[19] = DFFEAS(A1L851, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L581 is LessThan~999
+A1L581 = !CLK_COUNT_400HZ[16] & !CLK_COUNT_400HZ[17] & !CLK_COUNT_400HZ[18] & !CLK_COUNT_400HZ[19];
+
+
+--CLK_COUNT_400HZ[11] is CLK_COUNT_400HZ[11]
+CLK_COUNT_400HZ[11] = DFFEAS(A1L431, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[10] is CLK_COUNT_400HZ[10]
+CLK_COUNT_400HZ[10] = DFFEAS(A1L131, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[12] is CLK_COUNT_400HZ[12]
+CLK_COUNT_400HZ[12] = DFFEAS(A1L731, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[13] is CLK_COUNT_400HZ[13]
+CLK_COUNT_400HZ[13] = DFFEAS(A1L041, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L681 is LessThan~1000
+A1L681 = !CLK_COUNT_400HZ[11] & !CLK_COUNT_400HZ[10] # !CLK_COUNT_400HZ[13] # !CLK_COUNT_400HZ[12];
+
+
+--CLK_COUNT_400HZ[2] is CLK_COUNT_400HZ[2]
+CLK_COUNT_400HZ[2] = DFFEAS(A1L701, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[3] is CLK_COUNT_400HZ[3]
+CLK_COUNT_400HZ[3] = DFFEAS(A1L011, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[4] is CLK_COUNT_400HZ[4]
+CLK_COUNT_400HZ[4] = DFFEAS(A1L311, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[5] is CLK_COUNT_400HZ[5]
+CLK_COUNT_400HZ[5] = DFFEAS(A1L611, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L781 is LessThan~1001
+A1L781 = !CLK_COUNT_400HZ[2] & !CLK_COUNT_400HZ[3] & !CLK_COUNT_400HZ[4] # !CLK_COUNT_400HZ[5];
+
+
+--CLK_COUNT_400HZ[6] is CLK_COUNT_400HZ[6]
+CLK_COUNT_400HZ[6] = DFFEAS(A1L911, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[7] is CLK_COUNT_400HZ[7]
+CLK_COUNT_400HZ[7] = DFFEAS(A1L221, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[8] is CLK_COUNT_400HZ[8]
+CLK_COUNT_400HZ[8] = DFFEAS(A1L521, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L881 is LessThan~1002
+A1L881 = !CLK_COUNT_400HZ[11] & !CLK_COUNT_400HZ[6] & !CLK_COUNT_400HZ[7] & !CLK_COUNT_400HZ[8];
+
+
+--CLK_COUNT_400HZ[9] is CLK_COUNT_400HZ[9]
+CLK_COUNT_400HZ[9] = DFFEAS(A1L821, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L981 is LessThan~1003
+A1L981 = A1L681 # A1L781 & A1L881 & !CLK_COUNT_400HZ[9];
+
+
+--CLK_COUNT_400HZ[14] is CLK_COUNT_400HZ[14]
+CLK_COUNT_400HZ[14] = DFFEAS(A1L341, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[15] is CLK_COUNT_400HZ[15]
+CLK_COUNT_400HZ[15] = DFFEAS(A1L641, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L091 is LessThan~1004
+A1L091 = A1L581 & (A1L981 # !CLK_COUNT_400HZ[15] # !CLK_COUNT_400HZ[14]);
+
+
+--A1L27 is CLK_400HZ~97
+A1L27 = CLK_400HZ $ !A1L091;
+
+
+--A1L74 is BCD_SECD0~144
+A1L74 = BCD_SECD0[3] & !BCD_SECD0[0] & !BCD_SECD0[2] & !BCD_SECD0[1] # !BCD_SECD0[3] & BCD_SECD0[0] & BCD_SECD0[2] & BCD_SECD0[1];
+
+
+--A1L84 is BCD_SECD0~145
+A1L84 = !BCD_SECD0[3] & (BCD_SECD0[2] $ (BCD_SECD0[0] & BCD_SECD0[1]));
+
+
+--A1L94 is BCD_SECD0~146
+A1L94 = !BCD_SECD0[3] & (BCD_SECD0[0] $ BCD_SECD0[1]);
+
+
+--CLK_COUNT_10HZ[6] is CLK_COUNT_10HZ[6]
+CLK_COUNT_10HZ[6] = DFFEAS(A1L39, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--CLK_COUNT_10HZ[7] is CLK_COUNT_10HZ[7]
+CLK_COUNT_10HZ[7] = DFFEAS(A1L69, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--A1L191 is LessThan~1005
+A1L191 = !CLK_COUNT_10HZ[6] & !CLK_COUNT_10HZ[7];
+
+
+--CLK_COUNT_10HZ[0] is CLK_COUNT_10HZ[0]
+CLK_COUNT_10HZ[0] = DFFEAS(A1L57, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--CLK_COUNT_10HZ[1] is CLK_COUNT_10HZ[1]
+CLK_COUNT_10HZ[1] = DFFEAS(A1L87, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--CLK_COUNT_10HZ[2] is CLK_COUNT_10HZ[2]
+CLK_COUNT_10HZ[2] = DFFEAS(A1L18, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--CLK_COUNT_10HZ[3] is CLK_COUNT_10HZ[3]
+CLK_COUNT_10HZ[3] = DFFEAS(A1L48, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--A1L291 is LessThan~1006
+A1L291 = !CLK_COUNT_10HZ[2] & !CLK_COUNT_10HZ[3] & (!CLK_COUNT_10HZ[1] # !CLK_COUNT_10HZ[0]);
+
+
+--CLK_COUNT_10HZ[4] is CLK_COUNT_10HZ[4]
+CLK_COUNT_10HZ[4] = DFFEAS(A1L78, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--CLK_COUNT_10HZ[5] is CLK_COUNT_10HZ[5]
+CLK_COUNT_10HZ[5] = DFFEAS(A1L09, CLK_400HZ,  ,  , reset,  ,  , A1L391,  );
+
+
+--A1L391 is LessThan~1007
+A1L391 = CLK_COUNT_10HZ[5] # !A1L291 & CLK_COUNT_10HZ[4] # !A1L191;
+
+
+--A1L86 is CLK_10HZ~0
+A1L86 = reset & A1L391;
+
+
+--A1L36 is BCD_TSEC~164
+A1L36 = !BCD_TSEC[3] & (BCD_TSEC[2] $ (BCD_TSEC[1] & BCD_TSEC[0]));
+
+
+--A1L46 is BCD_TSEC~165
+A1L46 = !BCD_TSEC[3] & (BCD_TSEC[1] $ BCD_TSEC[0]);
+
+
+--A1L56 is BCD_TSEC~166
+A1L56 = !BCD_TSEC[0] & (!BCD_TSEC[2] & !BCD_TSEC[1] # !BCD_TSEC[3]);
+
+
+--A1L66 is BCD_TSEC~167
+A1L66 = BCD_TSEC[3] & !BCD_TSEC[2] & !BCD_TSEC[1] & !BCD_TSEC[0] # !BCD_TSEC[3] & BCD_TSEC[2] & BCD_TSEC[1] & BCD_TSEC[0];
+
+
+--DATA_BUS_VALUE[0] is DATA_BUS_VALUE[0]
+DATA_BUS_VALUE[0] = DFFEAS(A1L242, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[1] is DATA_BUS_VALUE[1]
+DATA_BUS_VALUE[1] = DFFEAS(A1L842, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[2] is DATA_BUS_VALUE[2]
+DATA_BUS_VALUE[2] = DFFEAS(A1L452, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[3] is DATA_BUS_VALUE[3]
+DATA_BUS_VALUE[3] = DFFEAS(A1L262, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[4] is DATA_BUS_VALUE[4]
+DATA_BUS_VALUE[4] = DFFEAS(A1L362, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[5] is DATA_BUS_VALUE[5]
+DATA_BUS_VALUE[5] = DFFEAS(A1L472, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--DATA_BUS_VALUE[7] is DATA_BUS_VALUE[7]
+DATA_BUS_VALUE[7] = DFFEAS(A1L462, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.mode_set is state.mode_set
+state.mode_set = DFFEAS(A1L703, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.return_home is state.return_home
+state.return_home = DFFEAS(A1L803, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L722 is Select~1607
+A1L722 = !state.mode_set & !state.return_home;
+
+
+--A1L822 is Select~1608
+A1L822 = state.write_char1 # next_command.write_char2 & (state.toggle_e # state.hold);
+
+
+--A1L922 is Select~1609
+A1L922 = state.write_char9 # next_command.write_char10 & (state.toggle_e # state.hold);
+
+
+--A1L032 is Select~1610
+A1L032 = state.write_char3 # next_command.write_char4 & (state.toggle_e # state.hold);
+
+
+--A1L132 is Select~1611
+A1L132 = state.write_char4 # next_command.write_char5 & (state.toggle_e # state.hold);
+
+
+--A1L232 is Select~1612
+A1L232 = state.write_char6 # next_command.write_char7 & (state.toggle_e # state.hold);
+
+
+--A1L332 is Select~1613
+A1L332 = state.write_char7 # next_command.write_char8 & (state.toggle_e # state.hold);
+
+
+--A1L432 is Select~1614
+A1L432 = state.write_char2 # next_command.write_char3 & (state.toggle_e # state.hold);
+
+
+--A1L532 is Select~1615
+A1L532 = state.write_char5 # next_command.write_char6 & (state.toggle_e # state.hold);
+
+
+--A1L632 is Select~1616
+A1L632 = state.write_char8 # next_command.write_char9 & (state.toggle_e # state.hold);
+
+
+--CLK_COUNT_400HZ[1] is CLK_COUNT_400HZ[1]
+CLK_COUNT_400HZ[1] = DFFEAS(A1L401, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--CLK_COUNT_400HZ[0] is CLK_COUNT_400HZ[0]
+CLK_COUNT_400HZ[0] = DFFEAS(A1L001, clk_50Mhz,  ,  ,  ,  ,  , A1L201,  );
+
+
+--A1L001 is CLK_COUNT_400HZ[0]~339
+A1L001 = CLK_COUNT_400HZ[0] $ VCC;
+
+--A1L101 is CLK_COUNT_400HZ[0]~340
+A1L101 = CARRY(CLK_COUNT_400HZ[0]);
+
+
+--A1L401 is CLK_COUNT_400HZ[1]~341
+A1L401 = CLK_COUNT_400HZ[1] & !A1L101 # !CLK_COUNT_400HZ[1] & (A1L101 # GND);
+
+--A1L501 is CLK_COUNT_400HZ[1]~342
+A1L501 = CARRY(!A1L101 # !CLK_COUNT_400HZ[1]);
+
+
+--A1L701 is CLK_COUNT_400HZ[2]~343
+A1L701 = CLK_COUNT_400HZ[2] & (A1L501 $ GND) # !CLK_COUNT_400HZ[2] & !A1L501 & VCC;
+
+--A1L801 is CLK_COUNT_400HZ[2]~344
+A1L801 = CARRY(CLK_COUNT_400HZ[2] & !A1L501);
+
+
+--A1L011 is CLK_COUNT_400HZ[3]~345
+A1L011 = CLK_COUNT_400HZ[3] & !A1L801 # !CLK_COUNT_400HZ[3] & (A1L801 # GND);
+
+--A1L111 is CLK_COUNT_400HZ[3]~346
+A1L111 = CARRY(!A1L801 # !CLK_COUNT_400HZ[3]);
+
+
+--A1L311 is CLK_COUNT_400HZ[4]~347
+A1L311 = CLK_COUNT_400HZ[4] & (A1L111 $ GND) # !CLK_COUNT_400HZ[4] & !A1L111 & VCC;
+
+--A1L411 is CLK_COUNT_400HZ[4]~348
+A1L411 = CARRY(CLK_COUNT_400HZ[4] & !A1L111);
+
+
+--A1L611 is CLK_COUNT_400HZ[5]~349
+A1L611 = CLK_COUNT_400HZ[5] & !A1L411 # !CLK_COUNT_400HZ[5] & (A1L411 # GND);
+
+--A1L711 is CLK_COUNT_400HZ[5]~350
+A1L711 = CARRY(!A1L411 # !CLK_COUNT_400HZ[5]);
+
+
+--A1L911 is CLK_COUNT_400HZ[6]~351
+A1L911 = CLK_COUNT_400HZ[6] & (A1L711 $ GND) # !CLK_COUNT_400HZ[6] & !A1L711 & VCC;
+
+--A1L021 is CLK_COUNT_400HZ[6]~352
+A1L021 = CARRY(CLK_COUNT_400HZ[6] & !A1L711);
+
+
+--A1L221 is CLK_COUNT_400HZ[7]~353
+A1L221 = CLK_COUNT_400HZ[7] & !A1L021 # !CLK_COUNT_400HZ[7] & (A1L021 # GND);
+
+--A1L321 is CLK_COUNT_400HZ[7]~354
+A1L321 = CARRY(!A1L021 # !CLK_COUNT_400HZ[7]);
+
+
+--A1L521 is CLK_COUNT_400HZ[8]~355
+A1L521 = CLK_COUNT_400HZ[8] & (A1L321 $ GND) # !CLK_COUNT_400HZ[8] & !A1L321 & VCC;
+
+--A1L621 is CLK_COUNT_400HZ[8]~356
+A1L621 = CARRY(CLK_COUNT_400HZ[8] & !A1L321);
+
+
+--A1L821 is CLK_COUNT_400HZ[9]~357
+A1L821 = CLK_COUNT_400HZ[9] & !A1L621 # !CLK_COUNT_400HZ[9] & (A1L621 # GND);
+
+--A1L921 is CLK_COUNT_400HZ[9]~358
+A1L921 = CARRY(!A1L621 # !CLK_COUNT_400HZ[9]);
+
+
+--A1L131 is CLK_COUNT_400HZ[10]~359
+A1L131 = CLK_COUNT_400HZ[10] & (A1L921 $ GND) # !CLK_COUNT_400HZ[10] & !A1L921 & VCC;
+
+--A1L231 is CLK_COUNT_400HZ[10]~360
+A1L231 = CARRY(CLK_COUNT_400HZ[10] & !A1L921);
+
+
+--A1L431 is CLK_COUNT_400HZ[11]~361
+A1L431 = CLK_COUNT_400HZ[11] & !A1L231 # !CLK_COUNT_400HZ[11] & (A1L231 # GND);
+
+--A1L531 is CLK_COUNT_400HZ[11]~362
+A1L531 = CARRY(!A1L231 # !CLK_COUNT_400HZ[11]);
+
+
+--A1L731 is CLK_COUNT_400HZ[12]~363
+A1L731 = CLK_COUNT_400HZ[12] & (A1L531 $ GND) # !CLK_COUNT_400HZ[12] & !A1L531 & VCC;
+
+--A1L831 is CLK_COUNT_400HZ[12]~364
+A1L831 = CARRY(CLK_COUNT_400HZ[12] & !A1L531);
+
+
+--A1L041 is CLK_COUNT_400HZ[13]~365
+A1L041 = CLK_COUNT_400HZ[13] & !A1L831 # !CLK_COUNT_400HZ[13] & (A1L831 # GND);
+
+--A1L141 is CLK_COUNT_400HZ[13]~366
+A1L141 = CARRY(!A1L831 # !CLK_COUNT_400HZ[13]);
+
+
+--A1L341 is CLK_COUNT_400HZ[14]~367
+A1L341 = CLK_COUNT_400HZ[14] & (A1L141 $ GND) # !CLK_COUNT_400HZ[14] & !A1L141 & VCC;
+
+--A1L441 is CLK_COUNT_400HZ[14]~368
+A1L441 = CARRY(CLK_COUNT_400HZ[14] & !A1L141);
+
+
+--A1L641 is CLK_COUNT_400HZ[15]~369
+A1L641 = CLK_COUNT_400HZ[15] & !A1L441 # !CLK_COUNT_400HZ[15] & (A1L441 # GND);
+
+--A1L741 is CLK_COUNT_400HZ[15]~370
+A1L741 = CARRY(!A1L441 # !CLK_COUNT_400HZ[15]);
+
+
+--A1L941 is CLK_COUNT_400HZ[16]~371
+A1L941 = CLK_COUNT_400HZ[16] & (A1L741 $ GND) # !CLK_COUNT_400HZ[16] & !A1L741 & VCC;
+
+--A1L051 is CLK_COUNT_400HZ[16]~372
+A1L051 = CARRY(CLK_COUNT_400HZ[16] & !A1L741);
+
+
+--A1L201 is CLK_COUNT_400HZ[0]~373
+A1L201 = !A1L091 # !reset;
+
+
+--A1L251 is CLK_COUNT_400HZ[17]~374
+A1L251 = CLK_COUNT_400HZ[17] & !A1L051 # !CLK_COUNT_400HZ[17] & (A1L051 # GND);
+
+--A1L351 is CLK_COUNT_400HZ[17]~375
+A1L351 = CARRY(!A1L051 # !CLK_COUNT_400HZ[17]);
+
+
+--A1L551 is CLK_COUNT_400HZ[18]~376
+A1L551 = CLK_COUNT_400HZ[18] & (A1L351 $ GND) # !CLK_COUNT_400HZ[18] & !A1L351 & VCC;
+
+--A1L651 is CLK_COUNT_400HZ[18]~377
+A1L651 = CARRY(CLK_COUNT_400HZ[18] & !A1L351);
+
+
+--A1L851 is CLK_COUNT_400HZ[19]~378
+A1L851 = CLK_COUNT_400HZ[19] $ A1L651;
+
+
+--A1L57 is CLK_COUNT_10HZ[0]~112
+A1L57 = CLK_COUNT_10HZ[0] $ VCC;
+
+--A1L67 is CLK_COUNT_10HZ[0]~113
+A1L67 = CARRY(CLK_COUNT_10HZ[0]);
+
+
+--A1L87 is CLK_COUNT_10HZ[1]~114
+A1L87 = CLK_COUNT_10HZ[1] & !A1L67 # !CLK_COUNT_10HZ[1] & (A1L67 # GND);
+
+--A1L97 is CLK_COUNT_10HZ[1]~115
+A1L97 = CARRY(!A1L67 # !CLK_COUNT_10HZ[1]);
+
+
+--A1L18 is CLK_COUNT_10HZ[2]~116
+A1L18 = CLK_COUNT_10HZ[2] & (A1L97 $ GND) # !CLK_COUNT_10HZ[2] & !A1L97 & VCC;
+
+--A1L28 is CLK_COUNT_10HZ[2]~117
+A1L28 = CARRY(CLK_COUNT_10HZ[2] & !A1L97);
+
+
+--A1L48 is CLK_COUNT_10HZ[3]~118
+A1L48 = CLK_COUNT_10HZ[3] & !A1L28 # !CLK_COUNT_10HZ[3] & (A1L28 # GND);
+
+--A1L58 is CLK_COUNT_10HZ[3]~119
+A1L58 = CARRY(!A1L28 # !CLK_COUNT_10HZ[3]);
+
+
+--A1L78 is CLK_COUNT_10HZ[4]~120
+A1L78 = CLK_COUNT_10HZ[4] & (A1L58 $ GND) # !CLK_COUNT_10HZ[4] & !A1L58 & VCC;
+
+--A1L88 is CLK_COUNT_10HZ[4]~121
+A1L88 = CARRY(CLK_COUNT_10HZ[4] & !A1L58);
+
+
+--A1L09 is CLK_COUNT_10HZ[5]~122
+A1L09 = CLK_COUNT_10HZ[5] & !A1L88 # !CLK_COUNT_10HZ[5] & (A1L88 # GND);
+
+--A1L19 is CLK_COUNT_10HZ[5]~123
+A1L19 = CARRY(!A1L88 # !CLK_COUNT_10HZ[5]);
+
+
+--A1L39 is CLK_COUNT_10HZ[6]~124
+A1L39 = CLK_COUNT_10HZ[6] & (A1L19 $ GND) # !CLK_COUNT_10HZ[6] & !A1L19 & VCC;
+
+--A1L49 is CLK_COUNT_10HZ[6]~125
+A1L49 = CARRY(CLK_COUNT_10HZ[6] & !A1L19);
+
+
+--A1L69 is CLK_COUNT_10HZ[7]~126
+A1L69 = CLK_COUNT_10HZ[7] $ A1L49;
+
+
+--BCD_MIND0[0] is BCD_MIND0[0]
+BCD_MIND0[0] = DFFEAS(A1L92, CLK_10HZ, !reset,  , A1L52,  ,  ,  ,  );
+
+
+--BCD_HRD0[0] is BCD_HRD0[0]
+BCD_HRD0[0] = DFFEAS(A1L9, CLK_10HZ, !reset,  , A1L2,  ,  ,  ,  );
+
+
+--A1L732 is Select~1617
+A1L732 = state.write_char2 & (BCD_HRD0[0] # state.write_char5 & BCD_MIND0[0]) # !state.write_char2 & state.write_char5 & BCD_MIND0[0];
+
+
+--BCD_MIND1[0] is BCD_MIND1[0]
+BCD_MIND1[0] = DFFEAS(A1L83, CLK_10HZ, !reset,  , A1L53,  ,  ,  ,  );
+
+
+--A1L832 is Select~1618
+A1L832 = state.write_char10 & (BCD_TSEC[0] # state.write_char4 & BCD_MIND1[0]) # !state.write_char10 & state.write_char4 & BCD_MIND1[0];
+
+
+--BCD_SECD1[0] is BCD_SECD1[0]
+BCD_SECD1[0] = DFFEAS(A1L55, CLK_10HZ, !reset,  , A1L25,  ,  ,  ,  );
+
+
+--A1L932 is Select~1619
+A1L932 = BCD_SECD0[0] & (state.write_char8 # state.write_char7 & BCD_SECD1[0]) # !BCD_SECD0[0] & state.write_char7 & BCD_SECD1[0];
+
+
+--state.display_clear is state.display_clear
+state.display_clear = DFFEAS(A1L903, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L042 is Select~1620
+A1L042 = A1L932 # state.display_clear # DATA_BUS_VALUE[0] & !A1L181;
+
+
+--BCD_HRD1[0] is BCD_HRD1[0]
+BCD_HRD1[0] = DFFEAS(A1L51, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L142 is Select~1621
+A1L142 = state.write_char1 & BCD_HRD1[0];
+
+
+--A1L242 is Select~1622
+A1L242 = A1L732 # A1L832 # A1L042 # A1L142;
+
+
+--BCD_HRD1[1] is BCD_HRD1[1]
+BCD_HRD1[1] = DFFEAS(A1L71, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L342 is Select~1623
+A1L342 = state.write_char1 & (BCD_HRD1[1] # state.write_char8 & BCD_SECD0[1]) # !state.write_char1 & state.write_char8 & BCD_SECD0[1];
+
+
+--BCD_MIND1[1] is BCD_MIND1[1]
+BCD_MIND1[1] = DFFEAS(A1L93, CLK_10HZ, !reset,  , A1L53,  ,  ,  ,  );
+
+
+--BCD_HRD0[1] is BCD_HRD0[1]
+BCD_HRD0[1] = DFFEAS(A1L01, CLK_10HZ, !reset,  , A1L2,  ,  ,  ,  );
+
+
+--A1L442 is Select~1624
+A1L442 = state.write_char2 & (BCD_HRD0[1] # state.write_char4 & BCD_MIND1[1]) # !state.write_char2 & state.write_char4 & BCD_MIND1[1];
+
+
+--BCD_SECD1[1] is BCD_SECD1[1]
+BCD_SECD1[1] = DFFEAS(A1L65, CLK_10HZ, !reset,  , A1L25,  ,  ,  ,  );
+
+
+--BCD_MIND0[1] is BCD_MIND0[1]
+BCD_MIND0[1] = DFFEAS(A1L03, CLK_10HZ, !reset,  , A1L52,  ,  ,  ,  );
+
+
+--A1L542 is Select~1625
+A1L542 = state.write_char5 & (BCD_MIND0[1] # state.write_char7 & BCD_SECD1[1]) # !state.write_char5 & state.write_char7 & BCD_SECD1[1];
+
+
+--A1L642 is Select~1626
+A1L642 = state.mode_set # A1L542 # !A1L522;
+
+
+--A1L742 is Select~1627
+A1L742 = state.write_char10 & (BCD_TSEC[1] # DATA_BUS_VALUE[1] & !A1L181) # !state.write_char10 & (DATA_BUS_VALUE[1] & !A1L181);
+
+
+--A1L842 is Select~1628
+A1L842 = A1L342 # A1L442 # A1L642 # A1L742;
+
+
+--BCD_SECD1[2] is BCD_SECD1[2]
+BCD_SECD1[2] = DFFEAS(A1L75, CLK_10HZ, !reset,  , A1L25,  ,  ,  ,  );
+
+
+--BCD_MIND1[2] is BCD_MIND1[2]
+BCD_MIND1[2] = DFFEAS(A1L04, CLK_10HZ, !reset,  , A1L53,  ,  ,  ,  );
+
+
+--A1L942 is Select~1629
+A1L942 = state.write_char4 & (BCD_MIND1[2] # state.write_char7 & BCD_SECD1[2]) # !state.write_char4 & state.write_char7 & BCD_SECD1[2];
+
+
+--BCD_HRD0[2] is BCD_HRD0[2]
+BCD_HRD0[2] = DFFEAS(A1L21, CLK_10HZ, !reset,  , A1L2,  ,  ,  ,  );
+
+
+--BCD_HRD1[2] is BCD_HRD1[2]
+BCD_HRD1[2] = DFFEAS(A1L02, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L052 is Select~1630
+A1L052 = state.write_char1 & (BCD_HRD1[2] # state.write_char2 & BCD_HRD0[2]) # !state.write_char1 & state.write_char2 & BCD_HRD0[2];
+
+
+--BCD_MIND0[2] is BCD_MIND0[2]
+BCD_MIND0[2] = DFFEAS(A1L13, CLK_10HZ, !reset,  , A1L52,  ,  ,  ,  );
+
+
+--A1L152 is Select~1631
+A1L152 = state.write_char5 & (BCD_MIND0[2] # state.write_char8 & BCD_SECD0[2]) # !state.write_char5 & state.write_char8 & BCD_SECD0[2];
+
+
+--A1L252 is Select~1632
+A1L252 = state.write_char9 # A1L152 # DATA_BUS_VALUE[2] & !A1L181;
+
+
+--state.display_on is state.display_on
+state.display_on = DFFEAS(A1L013, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L352 is Select~1633
+A1L352 = state.mode_set # state.display_on # state.write_char10 & BCD_TSEC[2];
+
+
+--A1L452 is Select~1634
+A1L452 = A1L942 # A1L052 # A1L252 # A1L352;
+
+
+--BCD_HRD0[3] is BCD_HRD0[3]
+BCD_HRD0[3] = DFFEAS(A1L11, CLK_10HZ, !reset,  , A1L2,  ,  ,  ,  );
+
+
+--BCD_HRD1[3] is BCD_HRD1[3]
+BCD_HRD1[3] = DFFEAS(A1L22, CLK_10HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L552 is Select~1635
+A1L552 = state.write_char1 & (BCD_HRD1[3] # state.write_char2 & BCD_HRD0[3]) # !state.write_char1 & state.write_char2 & BCD_HRD0[3];
+
+
+--BCD_MIND0[3] is BCD_MIND0[3]
+BCD_MIND0[3] = DFFEAS(A1L23, CLK_10HZ, !reset,  , A1L52,  ,  ,  ,  );
+
+
+--A1L652 is Select~1636
+A1L652 = state.write_char5 & (BCD_MIND0[3] # state.write_char8 & BCD_SECD0[3]) # !state.write_char5 & state.write_char8 & BCD_SECD0[3];
+
+
+--A1L752 is Select~1637
+A1L752 = state.write_char10 & BCD_TSEC[3];
+
+
+--state.display_off is state.display_off
+state.display_off = DFFEAS(A1L113, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L852 is Select~1638
+A1L852 = !state.display_on & !state.display_off;
+
+
+--state.reset1 is state.reset1
+state.reset1 = DFFEAS(VCC, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L952 is Select~1639
+A1L952 = A1L752 # !state.reset1 # !A1L852 # !A1L522;
+
+
+--state.func_set is state.func_set
+state.func_set = DFFEAS(A1L213, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.reset2 is state.reset2
+state.reset2 = DFFEAS(A1L313, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--state.reset3 is state.reset3
+state.reset3 = DFFEAS(A1L413, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L062 is Select~1640
+A1L062 = state.reset2 # state.reset3;
+
+
+--A1L162 is Select~1641
+A1L162 = state.func_set # A1L062 # !A1L181 & !DATA_BUS_VALUE[3];
+
+
+--A1L262 is Select~1642
+A1L262 = !A1L552 & !A1L652 & !A1L952 & !A1L162;
+
+
+--A1L772 is state.display_off~46
+A1L772 = A1L181 & A1L722 & A1L852 & !state.display_clear;
+
+
+--A1L362 is Select~1643
+A1L362 = A1L772 & state.write_char9 & (A1L181 # DATA_BUS_VALUE[4]) # !A1L772 & (A1L181 # DATA_BUS_VALUE[4]);
+
+
+--A1L462 is Select~1644
+A1L462 = state.return_home # DATA_BUS_VALUE[7] & (state.toggle_e # state.hold);
+
+
+--next_command.mode_set is next_command.mode_set
+next_command.mode_set = DFFEAS(A1L562, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L703 is state~241
+A1L703 = state.hold & next_command.mode_set;
+
+
+--next_command.return_home is next_command.return_home
+next_command.return_home = DFFEAS(A1L662, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L803 is state~242
+A1L803 = state.hold & next_command.return_home;
+
+
+--A1L92 is BCD_MIND0~171
+A1L92 = !BCD_MIND0[0] & (!BCD_MIND0[1] & !BCD_MIND0[2] # !BCD_MIND0[3]);
+
+
+--A1L491 is LessThan~1008
+A1L491 = !BCD_SECD0[0] & !BCD_SECD0[2] & !BCD_SECD0[1] # !BCD_SECD0[3];
+
+
+--A1L591 is LessThan~1009
+A1L591 = !BCD_SECD1[0] & !BCD_SECD1[1] # !BCD_SECD1[2];
+
+
+--A1L52 is BCD_MIND0[0]~172
+A1L52 = !A1L491 & A1L481 & !A1L591;
+
+
+--A1L612 is process2~106
+A1L612 = !BCD_HRD0[1] & !BCD_HRD0[2];
+
+
+--A1L712 is process2~107
+A1L712 = BCD_HRD1[2] # BCD_HRD0[2] # BCD_HRD1[3] # BCD_HRD0[3];
+
+
+--A1L3 is add~1267
+A1L3 = BCD_HRD0[0] & BCD_HRD0[1];
+
+
+--A1L512 is process2~1
+A1L512 = BCD_HRD1[0] # A1L712 # !A1L3 # !BCD_HRD1[1];
+
+
+--A1L9 is BCD_HRD0~218
+A1L9 = !BCD_HRD0[0] & A1L512 & (A1L612 # !BCD_HRD0[3]);
+
+
+--A1L691 is LessThan~1010
+A1L691 = !BCD_MIND0[0] & !BCD_MIND0[1] & !BCD_MIND0[2] # !BCD_MIND0[3];
+
+
+--A1L53 is BCD_MIND1[0]~158
+A1L53 = !A1L491 & A1L481 & !A1L691 & !A1L591;
+
+
+--A1L2 is _~109
+A1L2 = BCD_MIND1[2] & A1L53 & (BCD_MIND1[0] # BCD_MIND1[1]);
+
+
+--A1L83 is BCD_MIND1~159
+A1L83 = !BCD_MIND1[0] & (!BCD_MIND1[2] # !BCD_MIND1[1]);
+
+
+--A1L55 is BCD_SECD1~137
+A1L55 = !BCD_SECD1[0] & (!BCD_SECD1[2] # !BCD_SECD1[1]);
+
+
+--A1L25 is BCD_SECD1[0]~138
+A1L25 = !A1L491 & A1L481;
+
+
+--next_command.display_clear is next_command.display_clear
+next_command.display_clear = DFFEAS(A1L762, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L903 is state~243
+A1L903 = state.hold & next_command.display_clear;
+
+
+--A1L812 is process2~108
+A1L812 = A1L512 & (A1L612 & !BCD_HRD0[0] # !BCD_HRD0[3]);
+
+
+--A1L51 is BCD_HRD1[0]~273
+A1L51 = BCD_HRD1[0] $ (!A1L812 & A1L512 & A1L2);
+
+
+--A1L1 is _~19
+A1L1 = A1L812 # !A1L2;
+
+
+--A1L71 is BCD_HRD1[1]~274
+A1L71 = BCD_HRD1[1] $ (!A1L1 & (BCD_HRD1[0] $ !A1L512));
+
+
+--A1L93 is BCD_MIND1~160
+A1L93 = !BCD_MIND1[2] & (BCD_MIND1[0] $ BCD_MIND1[1]);
+
+
+--A1L01 is BCD_HRD0~219
+A1L01 = A1L812 & (BCD_HRD0[0] $ BCD_HRD0[1]);
+
+
+--A1L65 is BCD_SECD1~139
+A1L65 = !BCD_SECD1[2] & (BCD_SECD1[0] $ BCD_SECD1[1]);
+
+
+--A1L03 is BCD_MIND0~173
+A1L03 = !BCD_MIND0[3] & (BCD_MIND0[0] $ BCD_MIND0[1]);
+
+
+--A1L75 is BCD_SECD1~140
+A1L75 = BCD_SECD1[0] & BCD_SECD1[1] & !BCD_SECD1[2] # !BCD_SECD1[0] & !BCD_SECD1[1] & BCD_SECD1[2];
+
+
+--A1L04 is BCD_MIND1~161
+A1L04 = BCD_MIND1[0] & BCD_MIND1[1] & !BCD_MIND1[2] # !BCD_MIND1[0] & !BCD_MIND1[1] & BCD_MIND1[2];
+
+
+--A1L91 is BCD_HRD1[2]~275
+A1L91 = BCD_HRD1[0] & BCD_HRD1[1] & A1L2 & !A1L812;
+
+
+--A1L02 is BCD_HRD1[2]~276
+A1L02 = BCD_HRD1[2] $ A1L91;
+
+
+--A1L13 is BCD_MIND0~174
+A1L13 = !BCD_MIND0[3] & (BCD_MIND0[2] $ (BCD_MIND0[0] & BCD_MIND0[1]));
+
+
+--next_command.display_on is next_command.display_on
+next_command.display_on = DFFEAS(A1L862, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L013 is state~244
+A1L013 = state.hold & next_command.display_on;
+
+
+--A1L11 is BCD_HRD0~220
+A1L11 = A1L812 & (BCD_HRD0[3] $ (BCD_HRD0[2] & A1L3));
+
+
+--A1L22 is BCD_HRD1[3]~277
+A1L22 = BCD_HRD1[3] $ (BCD_HRD1[2] & A1L91);
+
+
+--A1L23 is BCD_MIND0~175
+A1L23 = BCD_MIND0[3] & !BCD_MIND0[0] & !BCD_MIND0[1] & !BCD_MIND0[2] # !BCD_MIND0[3] & BCD_MIND0[0] & BCD_MIND0[1] & BCD_MIND0[2];
+
+
+--next_command.display_off is next_command.display_off
+next_command.display_off = DFFEAS(A1L962, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L113 is state~245
+A1L113 = state.hold & next_command.display_off;
+
+
+--next_command.func_set is next_command.func_set
+next_command.func_set = DFFEAS(A1L072, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L213 is state~246
+A1L213 = state.hold & next_command.func_set;
+
+
+--next_command.reset2 is next_command.reset2
+next_command.reset2 = DFFEAS(A1L172, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L313 is state~247
+A1L313 = !next_command.reset2 & state.hold;
+
+
+--next_command.reset3 is next_command.reset3
+next_command.reset3 = DFFEAS(A1L272, CLK_400HZ, !reset,  ,  ,  ,  ,  ,  );
+
+
+--A1L413 is state~248
+A1L413 = state.hold & next_command.reset3;
+
+
+--A1L562 is Select~1645
+A1L562 = state.display_on # next_command.mode_set & (state.toggle_e # state.hold);
+
+
+--A1L662 is Select~1646
+A1L662 = state.write_char10 # next_command.return_home & (state.toggle_e # state.hold);
+
+
+--A1L762 is Select~1647
+A1L762 = state.display_off # next_command.display_clear & (state.toggle_e # state.hold);
+
+
+--A1L862 is Select~1648
+A1L862 = state.display_clear # next_command.display_on & (state.toggle_e # state.hold);
+
+
+--A1L962 is Select~1649
+A1L962 = state.func_set # next_command.display_off & (state.toggle_e # state.hold);
+
+
+--A1L072 is Select~1650
+A1L072 = state.reset3 # next_command.func_set & (state.toggle_e # state.hold);
+
+
+--A1L172 is Select~1651
+A1L172 = state.reset1 & (next_command.reset2 # !state.toggle_e & !state.hold);
+
+
+--A1L272 is Select~1652
+A1L272 = state.reset2 # next_command.reset3 & (state.toggle_e # state.hold);
+
+
+--A1L372 is Select~1653
+A1L372 = next_command.write_char1 & (state.toggle_e # state.hold) # !A1L722;
+
+
+--A1L472 is Select~1654
+A1L472 = !A1L772 & (DATA_BUS_VALUE[5] # !state.toggle_e & !state.hold);
+
+
+--A1L21 is BCD_HRD0~221
+A1L21 = A1L812 & (BCD_HRD0[2] $ (BCD_HRD0[0] & BCD_HRD0[1]));
+
+
+--A1L96 is CLK_10HZ~41
+A1L96 = !CLK_10HZ;
+
+
+--reset is reset
+--operation mode is input
+
+reset = INPUT();
+
+
+--clk_50Mhz is clk_50Mhz
+--operation mode is input
+
+clk_50Mhz = INPUT();
+
+
+--LCD_RS is LCD_RS
+--operation mode is output
+
+LCD_RS = OUTPUT(A1L281Q);
+
+
+--LCD_E is LCD_E
+--operation mode is output
+
+LCD_E = OUTPUT(!A1L871Q);
+
+
+--LCD_ON is LCD_ON
+--operation mode is output
+
+LCD_ON = OUTPUT(VCC);
+
+
+--RESET_LED is RESET_LED
+--operation mode is output
+
+RESET_LED = OUTPUT(!reset);
+
+
+--SEC_LED is SEC_LED
+--operation mode is output
+
+SEC_LED = OUTPUT(BCD_SECD0[0]);
+
+
+--LCD_RW is LCD_RW
+--operation mode is output
+
+LCD_RW = OUTPUT(GND);
+
+
+--DATA_BUS[0] is DATA_BUS[0]
+--operation mode is bidir
+
+DATA_BUS[0]_tri_out = TRI(DATA_BUS_VALUE[0], VCC);
+DATA_BUS[0] = BIDIR(DATA_BUS[0]_tri_out);
+
+
+--DATA_BUS[1] is DATA_BUS[1]
+--operation mode is bidir
+
+DATA_BUS[1]_tri_out = TRI(DATA_BUS_VALUE[1], VCC);
+DATA_BUS[1] = BIDIR(DATA_BUS[1]_tri_out);
+
+
+--DATA_BUS[2] is DATA_BUS[2]
+--operation mode is bidir
+
+DATA_BUS[2]_tri_out = TRI(DATA_BUS_VALUE[2], VCC);
+DATA_BUS[2] = BIDIR(DATA_BUS[2]_tri_out);
+
+
+--DATA_BUS[3] is DATA_BUS[3]
+--operation mode is bidir
+
+DATA_BUS[3]_tri_out = TRI(!DATA_BUS_VALUE[3], VCC);
+DATA_BUS[3] = BIDIR(DATA_BUS[3]_tri_out);
+
+
+--DATA_BUS[4] is DATA_BUS[4]
+--operation mode is bidir
+
+DATA_BUS[4]_tri_out = TRI(!DATA_BUS_VALUE[4], VCC);
+DATA_BUS[4] = BIDIR(DATA_BUS[4]_tri_out);
+
+
+--DATA_BUS[5] is DATA_BUS[5]
+--operation mode is bidir
+
+DATA_BUS[5]_tri_out = TRI(!DATA_BUS_VALUE[5], VCC);
+DATA_BUS[5] = BIDIR(DATA_BUS[5]_tri_out);
+
+
+--DATA_BUS[6] is DATA_BUS[6]
+--operation mode is bidir
+
+DATA_BUS[6] = BIDIR(OPNDRN(GND));
+
+
+--DATA_BUS[7] is DATA_BUS[7]
+--operation mode is bidir
+
+DATA_BUS[7]_tri_out = TRI(DATA_BUS_VALUE[7], VCC);
+DATA_BUS[7] = BIDIR(DATA_BUS[7]_tri_out);
+
+

@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.942 ns
+From           : reset
+To             : CLK_COUNT_400HZ[0]
+From Clock     : --
+To Clock       : clk_50Mhz
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 14.912 ns
+From           : BCD_SECD0[0]
+To             : SEC_LED
+From Clock     : clk_50Mhz
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.370 ns
+From           : reset
+To             : RESET_LED
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -1.111 ns
+From           : reset
+To             : CLK_COUNT_10HZ[0]
+From Clock     : --
+To Clock       : clk_50Mhz
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk_50Mhz'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 226.60 MHz ( period = 4.413 ns )
+From           : CLK_COUNT_400HZ[5]
+To             : CLK_COUNT_400HZ[0]
+From Clock     : clk_50Mhz
+To Clock       : clk_50Mhz
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

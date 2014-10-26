@@ -1,0 +1,759 @@
+Simulator report for DE2_Clock
+Thu Sep 28 21:21:59 2006
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 290 nodes    ;
+; Simulation Coverage         ;       6.82 % ;
+; Total Number of Transitions ; 673          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
+; Device                      ; EP2C35F672C6 ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Timing     ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Glitch Filtering                                                                           ; Off        ; Off           ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;       6.82 % ;
+; Total nodes checked                                 ; 290          ;
+; Total output ports checked                          ; 308          ;
+; Total output ports with complete 1/0-value coverage ; 21           ;
+; Total output ports with no 1/0-value coverage       ; 286          ;
+; Total output ports with no 1-value coverage         ; 286          ;
+; Total output ports with no 0-value coverage         ; 287          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                              ;
++-----------------------------------+-----------------------------------+------------------+
+; Node Name                         ; Output Port Name                  ; Output Port Type ;
++-----------------------------------+-----------------------------------+------------------+
+; |DE2_CLOCK|CLK_COUNT_400HZ[2]     ; |DE2_CLOCK|CLK_COUNT_400HZ[2]     ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[3]     ; |DE2_CLOCK|CLK_COUNT_400HZ[3]     ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[4]     ; |DE2_CLOCK|CLK_COUNT_400HZ[4]     ; regout           ;
+; |DE2_CLOCK|LessThan0~406          ; |DE2_CLOCK|LessThan0~406          ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[1]     ; |DE2_CLOCK|CLK_COUNT_400HZ[1]     ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[0]     ; |DE2_CLOCK|CLK_COUNT_400HZ[0]     ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[0]~206 ; |DE2_CLOCK|CLK_COUNT_400HZ[0]~206 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[0]~206 ; |DE2_CLOCK|CLK_COUNT_400HZ[0]~302 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[1]~205 ; |DE2_CLOCK|CLK_COUNT_400HZ[1]~205 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[1]~205 ; |DE2_CLOCK|CLK_COUNT_400HZ[1]~303 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[2]~202 ; |DE2_CLOCK|CLK_COUNT_400HZ[2]~202 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[2]~202 ; |DE2_CLOCK|CLK_COUNT_400HZ[2]~304 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[3]~203 ; |DE2_CLOCK|CLK_COUNT_400HZ[3]~203 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[3]~203 ; |DE2_CLOCK|CLK_COUNT_400HZ[3]~305 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[4]~204 ; |DE2_CLOCK|CLK_COUNT_400HZ[4]~204 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[4]~204 ; |DE2_CLOCK|CLK_COUNT_400HZ[4]~306 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[5]~201 ; |DE2_CLOCK|CLK_COUNT_400HZ[5]~201 ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[5]~201 ; |DE2_CLOCK|CLK_COUNT_400HZ[5]~307 ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[6]~197 ; |DE2_CLOCK|CLK_COUNT_400HZ[6]~197 ; combout          ;
+; |DE2_CLOCK|clk_50Mhz              ; |DE2_CLOCK|clk_50Mhz              ; combout          ;
+; |DE2_CLOCK|clk_50Mhz~clkctrl      ; |DE2_CLOCK|clk_50Mhz~clkctrl      ; outclk           ;
++-----------------------------------+-----------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++--------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                         ;
++---------------------------------------+---------------------------------------+------------------+
+; Node Name                             ; Output Port Name                      ; Output Port Type ;
++---------------------------------------+---------------------------------------+------------------+
+; |DE2_CLOCK|LCD_RS~reg0                ; |DE2_CLOCK|LCD_RS~reg0                ; regout           ;
+; |DE2_CLOCK|LCD_E~reg0                 ; |DE2_CLOCK|LCD_E~reg0                 ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[0]               ; |DE2_CLOCK|BCD_SECD0[0]               ; regout           ;
+; |DE2_CLOCK|state.write_char1          ; |DE2_CLOCK|state.write_char1          ; regout           ;
+; |DE2_CLOCK|state.toggle_e             ; |DE2_CLOCK|state.toggle_e             ; regout           ;
+; |DE2_CLOCK|state.hold                 ; |DE2_CLOCK|state.hold                 ; regout           ;
+; |DE2_CLOCK|Selector1~128              ; |DE2_CLOCK|Selector1~128              ; combout          ;
+; |DE2_CLOCK|state.write_char2          ; |DE2_CLOCK|state.write_char2          ; regout           ;
+; |DE2_CLOCK|state.write_char10         ; |DE2_CLOCK|state.write_char10         ; regout           ;
+; |DE2_CLOCK|state.write_char4          ; |DE2_CLOCK|state.write_char4          ; regout           ;
+; |DE2_CLOCK|state.write_char5          ; |DE2_CLOCK|state.write_char5          ; regout           ;
+; |DE2_CLOCK|Selector1~129              ; |DE2_CLOCK|Selector1~129              ; combout          ;
+; |DE2_CLOCK|state.write_char7          ; |DE2_CLOCK|state.write_char7          ; regout           ;
+; |DE2_CLOCK|state.write_char8          ; |DE2_CLOCK|state.write_char8          ; regout           ;
+; |DE2_CLOCK|Selector1~130              ; |DE2_CLOCK|Selector1~130              ; combout          ;
+; |DE2_CLOCK|state.write_char3          ; |DE2_CLOCK|state.write_char3          ; regout           ;
+; |DE2_CLOCK|state.write_char6          ; |DE2_CLOCK|state.write_char6          ; regout           ;
+; |DE2_CLOCK|state.write_char9          ; |DE2_CLOCK|state.write_char9          ; regout           ;
+; |DE2_CLOCK|Selector1~131              ; |DE2_CLOCK|Selector1~131              ; combout          ;
+; |DE2_CLOCK|Selector1~132              ; |DE2_CLOCK|Selector1~132              ; combout          ;
+; |DE2_CLOCK|CLK_400HZ                  ; |DE2_CLOCK|CLK_400HZ                  ; regout           ;
+; |DE2_CLOCK|LCD_E~9                    ; |DE2_CLOCK|LCD_E~9                    ; combout          ;
+; |DE2_CLOCK|BCD_SECD0[3]               ; |DE2_CLOCK|BCD_SECD0[3]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[2]               ; |DE2_CLOCK|BCD_SECD0[2]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[1]               ; |DE2_CLOCK|BCD_SECD0[1]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0~264              ; |DE2_CLOCK|BCD_SECD0~264              ; combout          ;
+; |DE2_CLOCK|CLK_10HZ                   ; |DE2_CLOCK|CLK_10HZ                   ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[2]                ; |DE2_CLOCK|BCD_TSEC[2]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[1]                ; |DE2_CLOCK|BCD_TSEC[1]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[0]                ; |DE2_CLOCK|BCD_TSEC[0]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[3]                ; |DE2_CLOCK|BCD_TSEC[3]                ; regout           ;
+; |DE2_CLOCK|LessThan2~88               ; |DE2_CLOCK|LessThan2~88               ; combout          ;
+; |DE2_CLOCK|next_command.write_char1   ; |DE2_CLOCK|next_command.write_char1   ; regout           ;
+; |DE2_CLOCK|state~250                  ; |DE2_CLOCK|state~250                  ; combout          ;
+; |DE2_CLOCK|LCD_RS~39                  ; |DE2_CLOCK|LCD_RS~39                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char2   ; |DE2_CLOCK|next_command.write_char2   ; regout           ;
+; |DE2_CLOCK|state~251                  ; |DE2_CLOCK|state~251                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char10  ; |DE2_CLOCK|next_command.write_char10  ; regout           ;
+; |DE2_CLOCK|state~252                  ; |DE2_CLOCK|state~252                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char4   ; |DE2_CLOCK|next_command.write_char4   ; regout           ;
+; |DE2_CLOCK|state~253                  ; |DE2_CLOCK|state~253                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char5   ; |DE2_CLOCK|next_command.write_char5   ; regout           ;
+; |DE2_CLOCK|state~254                  ; |DE2_CLOCK|state~254                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char7   ; |DE2_CLOCK|next_command.write_char7   ; regout           ;
+; |DE2_CLOCK|state~255                  ; |DE2_CLOCK|state~255                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char8   ; |DE2_CLOCK|next_command.write_char8   ; regout           ;
+; |DE2_CLOCK|state~256                  ; |DE2_CLOCK|state~256                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char3   ; |DE2_CLOCK|next_command.write_char3   ; regout           ;
+; |DE2_CLOCK|state~257                  ; |DE2_CLOCK|state~257                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char6   ; |DE2_CLOCK|next_command.write_char6   ; regout           ;
+; |DE2_CLOCK|state~258                  ; |DE2_CLOCK|state~258                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char9   ; |DE2_CLOCK|next_command.write_char9   ; regout           ;
+; |DE2_CLOCK|state~259                  ; |DE2_CLOCK|state~259                  ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]        ; |DE2_CLOCK|CLK_COUNT_400HZ[16]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]        ; |DE2_CLOCK|CLK_COUNT_400HZ[17]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]        ; |DE2_CLOCK|CLK_COUNT_400HZ[18]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[19]        ; |DE2_CLOCK|CLK_COUNT_400HZ[19]        ; regout           ;
+; |DE2_CLOCK|LessThan0~404              ; |DE2_CLOCK|LessThan0~404              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]        ; |DE2_CLOCK|CLK_COUNT_400HZ[11]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]        ; |DE2_CLOCK|CLK_COUNT_400HZ[10]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]        ; |DE2_CLOCK|CLK_COUNT_400HZ[12]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]        ; |DE2_CLOCK|CLK_COUNT_400HZ[13]        ; regout           ;
+; |DE2_CLOCK|LessThan0~405              ; |DE2_CLOCK|LessThan0~405              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[6]         ; |DE2_CLOCK|CLK_COUNT_400HZ[6]         ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]         ; |DE2_CLOCK|CLK_COUNT_400HZ[7]         ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]         ; |DE2_CLOCK|CLK_COUNT_400HZ[8]         ; regout           ;
+; |DE2_CLOCK|LessThan0~407              ; |DE2_CLOCK|LessThan0~407              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]         ; |DE2_CLOCK|CLK_COUNT_400HZ[9]         ; regout           ;
+; |DE2_CLOCK|LessThan0~408              ; |DE2_CLOCK|LessThan0~408              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]        ; |DE2_CLOCK|CLK_COUNT_400HZ[14]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]        ; |DE2_CLOCK|CLK_COUNT_400HZ[15]        ; regout           ;
+; |DE2_CLOCK|LessThan0~409              ; |DE2_CLOCK|LessThan0~409              ; combout          ;
+; |DE2_CLOCK|CLK_400HZ~98               ; |DE2_CLOCK|CLK_400HZ~98               ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~265              ; |DE2_CLOCK|BCD_SECD0~265              ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~266              ; |DE2_CLOCK|BCD_SECD0~266              ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~267              ; |DE2_CLOCK|BCD_SECD0~267              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]          ; |DE2_CLOCK|CLK_COUNT_10HZ[6]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[7]          ; |DE2_CLOCK|CLK_COUNT_10HZ[7]          ; regout           ;
+; |DE2_CLOCK|LessThan1~121              ; |DE2_CLOCK|LessThan1~121              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]          ; |DE2_CLOCK|CLK_COUNT_10HZ[0]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]          ; |DE2_CLOCK|CLK_COUNT_10HZ[1]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]          ; |DE2_CLOCK|CLK_COUNT_10HZ[2]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]          ; |DE2_CLOCK|CLK_COUNT_10HZ[3]          ; regout           ;
+; |DE2_CLOCK|LessThan1~122              ; |DE2_CLOCK|LessThan1~122              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]          ; |DE2_CLOCK|CLK_COUNT_10HZ[4]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]          ; |DE2_CLOCK|CLK_COUNT_10HZ[5]          ; regout           ;
+; |DE2_CLOCK|LessThan1~123              ; |DE2_CLOCK|LessThan1~123              ; combout          ;
+; |DE2_CLOCK|CLK_10HZ~101               ; |DE2_CLOCK|CLK_10HZ~101               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~169               ; |DE2_CLOCK|BCD_TSEC~169               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~170               ; |DE2_CLOCK|BCD_TSEC~170               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~171               ; |DE2_CLOCK|BCD_TSEC~171               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~172               ; |DE2_CLOCK|BCD_TSEC~172               ; combout          ;
+; |DE2_CLOCK|DATA_BUS_VALUE[0]          ; |DE2_CLOCK|DATA_BUS_VALUE[0]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[1]          ; |DE2_CLOCK|DATA_BUS_VALUE[1]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[2]          ; |DE2_CLOCK|DATA_BUS_VALUE[2]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[3]          ; |DE2_CLOCK|DATA_BUS_VALUE[3]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[4]          ; |DE2_CLOCK|DATA_BUS_VALUE[4]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[5]          ; |DE2_CLOCK|DATA_BUS_VALUE[5]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[7]          ; |DE2_CLOCK|DATA_BUS_VALUE[7]          ; regout           ;
+; |DE2_CLOCK|state.mode_set             ; |DE2_CLOCK|state.mode_set             ; regout           ;
+; |DE2_CLOCK|state.return_home          ; |DE2_CLOCK|state.return_home          ; regout           ;
+; |DE2_CLOCK|Selector14~45              ; |DE2_CLOCK|Selector14~45              ; combout          ;
+; |DE2_CLOCK|Selector15~38              ; |DE2_CLOCK|Selector15~38              ; combout          ;
+; |DE2_CLOCK|Selector23~38              ; |DE2_CLOCK|Selector23~38              ; combout          ;
+; |DE2_CLOCK|Selector17~38              ; |DE2_CLOCK|Selector17~38              ; combout          ;
+; |DE2_CLOCK|Selector18~38              ; |DE2_CLOCK|Selector18~38              ; combout          ;
+; |DE2_CLOCK|Selector20~38              ; |DE2_CLOCK|Selector20~38              ; combout          ;
+; |DE2_CLOCK|Selector21~38              ; |DE2_CLOCK|Selector21~38              ; combout          ;
+; |DE2_CLOCK|Selector16~38              ; |DE2_CLOCK|Selector16~38              ; combout          ;
+; |DE2_CLOCK|Selector19~38              ; |DE2_CLOCK|Selector19~38              ; combout          ;
+; |DE2_CLOCK|Selector22~38              ; |DE2_CLOCK|Selector22~38              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[6]~197     ; |DE2_CLOCK|CLK_COUNT_400HZ[6]~308     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; |DE2_CLOCK|CLK_COUNT_400HZ[7]~309     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; |DE2_CLOCK|CLK_COUNT_400HZ[8]~310     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~311     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; |DE2_CLOCK|CLK_COUNT_400HZ[10]~312    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; |DE2_CLOCK|CLK_COUNT_400HZ[11]~313    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; |DE2_CLOCK|CLK_COUNT_400HZ[12]~314    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; |DE2_CLOCK|CLK_COUNT_400HZ[13]~315    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; |DE2_CLOCK|CLK_COUNT_400HZ[14]~316    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; |DE2_CLOCK|CLK_COUNT_400HZ[15]~317    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; |DE2_CLOCK|CLK_COUNT_400HZ[16]~318    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~319     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~319     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; |DE2_CLOCK|CLK_COUNT_400HZ[17]~320    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; |DE2_CLOCK|CLK_COUNT_400HZ[18]~321    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[19]~190    ; |DE2_CLOCK|CLK_COUNT_400HZ[19]~190    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; |DE2_CLOCK|CLK_COUNT_10HZ[0]~281      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; |DE2_CLOCK|CLK_COUNT_10HZ[1]~282      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; |DE2_CLOCK|CLK_COUNT_10HZ[2]~283      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; |DE2_CLOCK|CLK_COUNT_10HZ[3]~284      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; |DE2_CLOCK|CLK_COUNT_10HZ[4]~285      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; |DE2_CLOCK|CLK_COUNT_10HZ[5]~286      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; |DE2_CLOCK|CLK_COUNT_10HZ[6]~287      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[7]~260      ; |DE2_CLOCK|CLK_COUNT_10HZ[7]~260      ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[0]               ; |DE2_CLOCK|BCD_MIND0[0]               ; regout           ;
+; |DE2_CLOCK|BCD_HRD0[0]                ; |DE2_CLOCK|BCD_HRD0[0]                ; regout           ;
+; |DE2_CLOCK|Selector8~129              ; |DE2_CLOCK|Selector8~129              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[0]               ; |DE2_CLOCK|BCD_MIND1[0]               ; regout           ;
+; |DE2_CLOCK|Selector8~130              ; |DE2_CLOCK|Selector8~130              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[0]               ; |DE2_CLOCK|BCD_SECD1[0]               ; regout           ;
+; |DE2_CLOCK|Selector8~131              ; |DE2_CLOCK|Selector8~131              ; combout          ;
+; |DE2_CLOCK|state.display_clear        ; |DE2_CLOCK|state.display_clear        ; regout           ;
+; |DE2_CLOCK|Selector8~132              ; |DE2_CLOCK|Selector8~132              ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]                ; |DE2_CLOCK|BCD_HRD1[0]                ; regout           ;
+; |DE2_CLOCK|Selector8~133              ; |DE2_CLOCK|Selector8~133              ; combout          ;
+; |DE2_CLOCK|Selector8~134              ; |DE2_CLOCK|Selector8~134              ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]                ; |DE2_CLOCK|BCD_HRD1[1]                ; regout           ;
+; |DE2_CLOCK|Selector7~148              ; |DE2_CLOCK|Selector7~148              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[1]               ; |DE2_CLOCK|BCD_MIND1[1]               ; regout           ;
+; |DE2_CLOCK|BCD_HRD0[1]                ; |DE2_CLOCK|BCD_HRD0[1]                ; regout           ;
+; |DE2_CLOCK|Selector7~149              ; |DE2_CLOCK|Selector7~149              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[1]               ; |DE2_CLOCK|BCD_SECD1[1]               ; regout           ;
+; |DE2_CLOCK|BCD_MIND0[1]               ; |DE2_CLOCK|BCD_MIND0[1]               ; regout           ;
+; |DE2_CLOCK|Selector7~150              ; |DE2_CLOCK|Selector7~150              ; combout          ;
+; |DE2_CLOCK|Selector7~151              ; |DE2_CLOCK|Selector7~151              ; combout          ;
+; |DE2_CLOCK|Selector7~152              ; |DE2_CLOCK|Selector7~152              ; combout          ;
+; |DE2_CLOCK|Selector7~153              ; |DE2_CLOCK|Selector7~153              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[2]               ; |DE2_CLOCK|BCD_SECD1[2]               ; regout           ;
+; |DE2_CLOCK|BCD_MIND1[2]               ; |DE2_CLOCK|BCD_MIND1[2]               ; regout           ;
+; |DE2_CLOCK|Selector6~151              ; |DE2_CLOCK|Selector6~151              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0[2]                ; |DE2_CLOCK|BCD_HRD0[2]                ; regout           ;
+; |DE2_CLOCK|BCD_HRD1[2]                ; |DE2_CLOCK|BCD_HRD1[2]                ; regout           ;
+; |DE2_CLOCK|Selector6~152              ; |DE2_CLOCK|Selector6~152              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[2]               ; |DE2_CLOCK|BCD_MIND0[2]               ; regout           ;
+; |DE2_CLOCK|Selector6~153              ; |DE2_CLOCK|Selector6~153              ; combout          ;
+; |DE2_CLOCK|Selector6~154              ; |DE2_CLOCK|Selector6~154              ; combout          ;
+; |DE2_CLOCK|state.display_on           ; |DE2_CLOCK|state.display_on           ; regout           ;
+; |DE2_CLOCK|Selector6~155              ; |DE2_CLOCK|Selector6~155              ; combout          ;
+; |DE2_CLOCK|Selector6~156              ; |DE2_CLOCK|Selector6~156              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0[3]                ; |DE2_CLOCK|BCD_HRD0[3]                ; regout           ;
+; |DE2_CLOCK|BCD_HRD1[3]                ; |DE2_CLOCK|BCD_HRD1[3]                ; regout           ;
+; |DE2_CLOCK|Selector5~179              ; |DE2_CLOCK|Selector5~179              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[3]               ; |DE2_CLOCK|BCD_MIND0[3]               ; regout           ;
+; |DE2_CLOCK|Selector5~180              ; |DE2_CLOCK|Selector5~180              ; combout          ;
+; |DE2_CLOCK|Selector5~181              ; |DE2_CLOCK|Selector5~181              ; combout          ;
+; |DE2_CLOCK|state.display_off          ; |DE2_CLOCK|state.display_off          ; regout           ;
+; |DE2_CLOCK|Selector5~182              ; |DE2_CLOCK|Selector5~182              ; combout          ;
+; |DE2_CLOCK|state.reset1               ; |DE2_CLOCK|state.reset1               ; regout           ;
+; |DE2_CLOCK|Selector5~183              ; |DE2_CLOCK|Selector5~183              ; combout          ;
+; |DE2_CLOCK|state.func_set             ; |DE2_CLOCK|state.func_set             ; regout           ;
+; |DE2_CLOCK|state.reset2               ; |DE2_CLOCK|state.reset2               ; regout           ;
+; |DE2_CLOCK|state.reset3               ; |DE2_CLOCK|state.reset3               ; regout           ;
+; |DE2_CLOCK|Selector5~184              ; |DE2_CLOCK|Selector5~184              ; combout          ;
+; |DE2_CLOCK|Selector5~185              ; |DE2_CLOCK|Selector5~185              ; combout          ;
+; |DE2_CLOCK|Selector5~186              ; |DE2_CLOCK|Selector5~186              ; combout          ;
+; |DE2_CLOCK|state.display_off~46       ; |DE2_CLOCK|state.display_off~46       ; combout          ;
+; |DE2_CLOCK|Selector4~38               ; |DE2_CLOCK|Selector4~38               ; combout          ;
+; |DE2_CLOCK|Selector2~38               ; |DE2_CLOCK|Selector2~38               ; combout          ;
+; |DE2_CLOCK|next_command.mode_set      ; |DE2_CLOCK|next_command.mode_set      ; regout           ;
+; |DE2_CLOCK|state~260                  ; |DE2_CLOCK|state~260                  ; combout          ;
+; |DE2_CLOCK|next_command.return_home   ; |DE2_CLOCK|next_command.return_home   ; regout           ;
+; |DE2_CLOCK|state~261                  ; |DE2_CLOCK|state~261                  ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~364              ; |DE2_CLOCK|BCD_MIND0~364              ; combout          ;
+; |DE2_CLOCK|LessThan3~88               ; |DE2_CLOCK|LessThan3~88               ; combout          ;
+; |DE2_CLOCK|LessThan4~95               ; |DE2_CLOCK|LessThan4~95               ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[0]~365           ; |DE2_CLOCK|BCD_MIND0[0]~365           ; combout          ;
+; |DE2_CLOCK|process2~114               ; |DE2_CLOCK|process2~114               ; combout          ;
+; |DE2_CLOCK|process2~115               ; |DE2_CLOCK|process2~115               ; combout          ;
+; |DE2_CLOCK|process2~116               ; |DE2_CLOCK|process2~116               ; combout          ;
+; |DE2_CLOCK|process2~117               ; |DE2_CLOCK|process2~117               ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~383               ; |DE2_CLOCK|BCD_HRD0~383               ; combout          ;
+; |DE2_CLOCK|LessThan6~81               ; |DE2_CLOCK|LessThan6~81               ; combout          ;
+; |DE2_CLOCK|LessThan5~74               ; |DE2_CLOCK|LessThan5~74               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]~589            ; |DE2_CLOCK|BCD_HRD1[0]~589            ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~351              ; |DE2_CLOCK|BCD_MIND1~351              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[0]~352           ; |DE2_CLOCK|BCD_MIND1[0]~352           ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~330              ; |DE2_CLOCK|BCD_SECD1~330              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[0]~331           ; |DE2_CLOCK|BCD_SECD1[0]~331           ; combout          ;
+; |DE2_CLOCK|next_command.display_clear ; |DE2_CLOCK|next_command.display_clear ; regout           ;
+; |DE2_CLOCK|state~262                  ; |DE2_CLOCK|state~262                  ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]~590            ; |DE2_CLOCK|BCD_HRD1[1]~590            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]~591            ; |DE2_CLOCK|BCD_HRD1[0]~591            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]~592            ; |DE2_CLOCK|BCD_HRD1[1]~592            ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~353              ; |DE2_CLOCK|BCD_MIND1~353              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~384               ; |DE2_CLOCK|BCD_HRD0~384               ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~332              ; |DE2_CLOCK|BCD_SECD1~332              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~366              ; |DE2_CLOCK|BCD_MIND0~366              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~333              ; |DE2_CLOCK|BCD_SECD1~333              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~354              ; |DE2_CLOCK|BCD_MIND1~354              ; combout          ;
+; |DE2_CLOCK|process2~118               ; |DE2_CLOCK|process2~118               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[2]~593            ; |DE2_CLOCK|BCD_HRD1[2]~593            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[2]~594            ; |DE2_CLOCK|BCD_HRD1[2]~594            ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~367              ; |DE2_CLOCK|BCD_MIND0~367              ; combout          ;
+; |DE2_CLOCK|next_command.display_on    ; |DE2_CLOCK|next_command.display_on    ; regout           ;
+; |DE2_CLOCK|state~263                  ; |DE2_CLOCK|state~263                  ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~385               ; |DE2_CLOCK|BCD_HRD0~385               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[3]~595            ; |DE2_CLOCK|BCD_HRD1[3]~595            ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~368              ; |DE2_CLOCK|BCD_MIND0~368              ; combout          ;
+; |DE2_CLOCK|next_command.display_off   ; |DE2_CLOCK|next_command.display_off   ; regout           ;
+; |DE2_CLOCK|state~264                  ; |DE2_CLOCK|state~264                  ; combout          ;
+; |DE2_CLOCK|next_command.func_set      ; |DE2_CLOCK|next_command.func_set      ; regout           ;
+; |DE2_CLOCK|state~265                  ; |DE2_CLOCK|state~265                  ; combout          ;
+; |DE2_CLOCK|next_command.reset2        ; |DE2_CLOCK|next_command.reset2        ; regout           ;
+; |DE2_CLOCK|state~266                  ; |DE2_CLOCK|state~266                  ; combout          ;
+; |DE2_CLOCK|next_command.reset3        ; |DE2_CLOCK|next_command.reset3        ; regout           ;
+; |DE2_CLOCK|state~267                  ; |DE2_CLOCK|state~267                  ; combout          ;
+; |DE2_CLOCK|Selector13~38              ; |DE2_CLOCK|Selector13~38              ; combout          ;
+; |DE2_CLOCK|Selector24~38              ; |DE2_CLOCK|Selector24~38              ; combout          ;
+; |DE2_CLOCK|Selector28~38              ; |DE2_CLOCK|Selector28~38              ; combout          ;
+; |DE2_CLOCK|Selector12~38              ; |DE2_CLOCK|Selector12~38              ; combout          ;
+; |DE2_CLOCK|Selector27~38              ; |DE2_CLOCK|Selector27~38              ; combout          ;
+; |DE2_CLOCK|Selector11~38              ; |DE2_CLOCK|Selector11~38              ; combout          ;
+; |DE2_CLOCK|Selector25~38              ; |DE2_CLOCK|Selector25~38              ; combout          ;
+; |DE2_CLOCK|Selector26~38              ; |DE2_CLOCK|Selector26~38              ; combout          ;
+; |DE2_CLOCK|Selector14~46              ; |DE2_CLOCK|Selector14~46              ; combout          ;
+; |DE2_CLOCK|Selector3~40               ; |DE2_CLOCK|Selector3~40               ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~386               ; |DE2_CLOCK|BCD_HRD0~386               ; combout          ;
+; |DE2_CLOCK|reset                      ; |DE2_CLOCK|reset                      ; combout          ;
+; |DE2_CLOCK|LCD_RS                     ; |DE2_CLOCK|LCD_RS                     ; padio            ;
+; |DE2_CLOCK|LCD_E                      ; |DE2_CLOCK|LCD_E                      ; padio            ;
+; |DE2_CLOCK|LCD_ON                     ; |DE2_CLOCK|LCD_ON                     ; padio            ;
+; |DE2_CLOCK|RESET_LED                  ; |DE2_CLOCK|RESET_LED                  ; padio            ;
+; |DE2_CLOCK|SEC_LED                    ; |DE2_CLOCK|SEC_LED                    ; padio            ;
+; |DE2_CLOCK|LCD_RW                     ; |DE2_CLOCK|LCD_RW                     ; padio            ;
+; |DE2_CLOCK|DATA_BUS[0]~output         ; |DE2_CLOCK|DATA_BUS[0]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[1]~output         ; |DE2_CLOCK|DATA_BUS[1]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[2]~output         ; |DE2_CLOCK|DATA_BUS[2]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[3]~output         ; |DE2_CLOCK|DATA_BUS[3]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[4]~output         ; |DE2_CLOCK|DATA_BUS[4]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[5]~output         ; |DE2_CLOCK|DATA_BUS[5]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[6]~output         ; |DE2_CLOCK|DATA_BUS[6]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[7]~output         ; |DE2_CLOCK|DATA_BUS[7]~output         ; padio            ;
+; |DE2_CLOCK|reset~clk_delay_ctrl       ; |DE2_CLOCK|reset~clk_delay_ctrl       ; clkout           ;
+; |DE2_CLOCK|CLK_10HZ~clkctrl           ; |DE2_CLOCK|CLK_10HZ~clkctrl           ; outclk           ;
+; |DE2_CLOCK|CLK_400HZ~clkctrl          ; |DE2_CLOCK|CLK_400HZ~clkctrl          ; outclk           ;
+; |DE2_CLOCK|reset~clkctrl              ; |DE2_CLOCK|reset~clkctrl              ; outclk           ;
+; |DE2_CLOCK|state.reset1~feeder        ; |DE2_CLOCK|state.reset1~feeder        ; combout          ;
++---------------------------------------+---------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++--------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                         ;
++---------------------------------------+---------------------------------------+------------------+
+; Node Name                             ; Output Port Name                      ; Output Port Type ;
++---------------------------------------+---------------------------------------+------------------+
+; |DE2_CLOCK|LCD_RS~reg0                ; |DE2_CLOCK|LCD_RS~reg0                ; regout           ;
+; |DE2_CLOCK|LCD_E~reg0                 ; |DE2_CLOCK|LCD_E~reg0                 ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[0]               ; |DE2_CLOCK|BCD_SECD0[0]               ; regout           ;
+; |DE2_CLOCK|state.write_char1          ; |DE2_CLOCK|state.write_char1          ; regout           ;
+; |DE2_CLOCK|state.toggle_e             ; |DE2_CLOCK|state.toggle_e             ; regout           ;
+; |DE2_CLOCK|state.hold                 ; |DE2_CLOCK|state.hold                 ; regout           ;
+; |DE2_CLOCK|Selector1~128              ; |DE2_CLOCK|Selector1~128              ; combout          ;
+; |DE2_CLOCK|state.write_char2          ; |DE2_CLOCK|state.write_char2          ; regout           ;
+; |DE2_CLOCK|state.write_char10         ; |DE2_CLOCK|state.write_char10         ; regout           ;
+; |DE2_CLOCK|state.write_char4          ; |DE2_CLOCK|state.write_char4          ; regout           ;
+; |DE2_CLOCK|state.write_char5          ; |DE2_CLOCK|state.write_char5          ; regout           ;
+; |DE2_CLOCK|Selector1~129              ; |DE2_CLOCK|Selector1~129              ; combout          ;
+; |DE2_CLOCK|state.write_char7          ; |DE2_CLOCK|state.write_char7          ; regout           ;
+; |DE2_CLOCK|state.write_char8          ; |DE2_CLOCK|state.write_char8          ; regout           ;
+; |DE2_CLOCK|Selector1~130              ; |DE2_CLOCK|Selector1~130              ; combout          ;
+; |DE2_CLOCK|state.write_char3          ; |DE2_CLOCK|state.write_char3          ; regout           ;
+; |DE2_CLOCK|state.write_char6          ; |DE2_CLOCK|state.write_char6          ; regout           ;
+; |DE2_CLOCK|state.write_char9          ; |DE2_CLOCK|state.write_char9          ; regout           ;
+; |DE2_CLOCK|Selector1~131              ; |DE2_CLOCK|Selector1~131              ; combout          ;
+; |DE2_CLOCK|Selector1~132              ; |DE2_CLOCK|Selector1~132              ; combout          ;
+; |DE2_CLOCK|CLK_400HZ                  ; |DE2_CLOCK|CLK_400HZ                  ; regout           ;
+; |DE2_CLOCK|LCD_E~9                    ; |DE2_CLOCK|LCD_E~9                    ; combout          ;
+; |DE2_CLOCK|BCD_SECD0[3]               ; |DE2_CLOCK|BCD_SECD0[3]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[2]               ; |DE2_CLOCK|BCD_SECD0[2]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0[1]               ; |DE2_CLOCK|BCD_SECD0[1]               ; regout           ;
+; |DE2_CLOCK|BCD_SECD0~264              ; |DE2_CLOCK|BCD_SECD0~264              ; combout          ;
+; |DE2_CLOCK|CLK_10HZ                   ; |DE2_CLOCK|CLK_10HZ                   ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[2]                ; |DE2_CLOCK|BCD_TSEC[2]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[1]                ; |DE2_CLOCK|BCD_TSEC[1]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[0]                ; |DE2_CLOCK|BCD_TSEC[0]                ; regout           ;
+; |DE2_CLOCK|BCD_TSEC[3]                ; |DE2_CLOCK|BCD_TSEC[3]                ; regout           ;
+; |DE2_CLOCK|LessThan2~88               ; |DE2_CLOCK|LessThan2~88               ; combout          ;
+; |DE2_CLOCK|next_command.write_char1   ; |DE2_CLOCK|next_command.write_char1   ; regout           ;
+; |DE2_CLOCK|state~250                  ; |DE2_CLOCK|state~250                  ; combout          ;
+; |DE2_CLOCK|LCD_RS~39                  ; |DE2_CLOCK|LCD_RS~39                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char2   ; |DE2_CLOCK|next_command.write_char2   ; regout           ;
+; |DE2_CLOCK|state~251                  ; |DE2_CLOCK|state~251                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char10  ; |DE2_CLOCK|next_command.write_char10  ; regout           ;
+; |DE2_CLOCK|state~252                  ; |DE2_CLOCK|state~252                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char4   ; |DE2_CLOCK|next_command.write_char4   ; regout           ;
+; |DE2_CLOCK|state~253                  ; |DE2_CLOCK|state~253                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char5   ; |DE2_CLOCK|next_command.write_char5   ; regout           ;
+; |DE2_CLOCK|state~254                  ; |DE2_CLOCK|state~254                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char7   ; |DE2_CLOCK|next_command.write_char7   ; regout           ;
+; |DE2_CLOCK|state~255                  ; |DE2_CLOCK|state~255                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char8   ; |DE2_CLOCK|next_command.write_char8   ; regout           ;
+; |DE2_CLOCK|state~256                  ; |DE2_CLOCK|state~256                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char3   ; |DE2_CLOCK|next_command.write_char3   ; regout           ;
+; |DE2_CLOCK|state~257                  ; |DE2_CLOCK|state~257                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char6   ; |DE2_CLOCK|next_command.write_char6   ; regout           ;
+; |DE2_CLOCK|state~258                  ; |DE2_CLOCK|state~258                  ; combout          ;
+; |DE2_CLOCK|next_command.write_char9   ; |DE2_CLOCK|next_command.write_char9   ; regout           ;
+; |DE2_CLOCK|state~259                  ; |DE2_CLOCK|state~259                  ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]        ; |DE2_CLOCK|CLK_COUNT_400HZ[16]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]        ; |DE2_CLOCK|CLK_COUNT_400HZ[17]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]        ; |DE2_CLOCK|CLK_COUNT_400HZ[18]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[19]        ; |DE2_CLOCK|CLK_COUNT_400HZ[19]        ; regout           ;
+; |DE2_CLOCK|LessThan0~404              ; |DE2_CLOCK|LessThan0~404              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]        ; |DE2_CLOCK|CLK_COUNT_400HZ[11]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]        ; |DE2_CLOCK|CLK_COUNT_400HZ[10]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]        ; |DE2_CLOCK|CLK_COUNT_400HZ[12]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]        ; |DE2_CLOCK|CLK_COUNT_400HZ[13]        ; regout           ;
+; |DE2_CLOCK|LessThan0~405              ; |DE2_CLOCK|LessThan0~405              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[5]         ; |DE2_CLOCK|CLK_COUNT_400HZ[5]         ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[6]         ; |DE2_CLOCK|CLK_COUNT_400HZ[6]         ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]         ; |DE2_CLOCK|CLK_COUNT_400HZ[7]         ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]         ; |DE2_CLOCK|CLK_COUNT_400HZ[8]         ; regout           ;
+; |DE2_CLOCK|LessThan0~407              ; |DE2_CLOCK|LessThan0~407              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]         ; |DE2_CLOCK|CLK_COUNT_400HZ[9]         ; regout           ;
+; |DE2_CLOCK|LessThan0~408              ; |DE2_CLOCK|LessThan0~408              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]        ; |DE2_CLOCK|CLK_COUNT_400HZ[14]        ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]        ; |DE2_CLOCK|CLK_COUNT_400HZ[15]        ; regout           ;
+; |DE2_CLOCK|LessThan0~409              ; |DE2_CLOCK|LessThan0~409              ; combout          ;
+; |DE2_CLOCK|CLK_400HZ~98               ; |DE2_CLOCK|CLK_400HZ~98               ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~265              ; |DE2_CLOCK|BCD_SECD0~265              ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~266              ; |DE2_CLOCK|BCD_SECD0~266              ; combout          ;
+; |DE2_CLOCK|BCD_SECD0~267              ; |DE2_CLOCK|BCD_SECD0~267              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]          ; |DE2_CLOCK|CLK_COUNT_10HZ[6]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[7]          ; |DE2_CLOCK|CLK_COUNT_10HZ[7]          ; regout           ;
+; |DE2_CLOCK|LessThan1~121              ; |DE2_CLOCK|LessThan1~121              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]          ; |DE2_CLOCK|CLK_COUNT_10HZ[0]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]          ; |DE2_CLOCK|CLK_COUNT_10HZ[1]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]          ; |DE2_CLOCK|CLK_COUNT_10HZ[2]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]          ; |DE2_CLOCK|CLK_COUNT_10HZ[3]          ; regout           ;
+; |DE2_CLOCK|LessThan1~122              ; |DE2_CLOCK|LessThan1~122              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]          ; |DE2_CLOCK|CLK_COUNT_10HZ[4]          ; regout           ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]          ; |DE2_CLOCK|CLK_COUNT_10HZ[5]          ; regout           ;
+; |DE2_CLOCK|LessThan1~123              ; |DE2_CLOCK|LessThan1~123              ; combout          ;
+; |DE2_CLOCK|CLK_10HZ~101               ; |DE2_CLOCK|CLK_10HZ~101               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~169               ; |DE2_CLOCK|BCD_TSEC~169               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~170               ; |DE2_CLOCK|BCD_TSEC~170               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~171               ; |DE2_CLOCK|BCD_TSEC~171               ; combout          ;
+; |DE2_CLOCK|BCD_TSEC~172               ; |DE2_CLOCK|BCD_TSEC~172               ; combout          ;
+; |DE2_CLOCK|DATA_BUS_VALUE[0]          ; |DE2_CLOCK|DATA_BUS_VALUE[0]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[1]          ; |DE2_CLOCK|DATA_BUS_VALUE[1]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[2]          ; |DE2_CLOCK|DATA_BUS_VALUE[2]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[3]          ; |DE2_CLOCK|DATA_BUS_VALUE[3]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[4]          ; |DE2_CLOCK|DATA_BUS_VALUE[4]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[5]          ; |DE2_CLOCK|DATA_BUS_VALUE[5]          ; regout           ;
+; |DE2_CLOCK|DATA_BUS_VALUE[7]          ; |DE2_CLOCK|DATA_BUS_VALUE[7]          ; regout           ;
+; |DE2_CLOCK|state.mode_set             ; |DE2_CLOCK|state.mode_set             ; regout           ;
+; |DE2_CLOCK|state.return_home          ; |DE2_CLOCK|state.return_home          ; regout           ;
+; |DE2_CLOCK|Selector14~45              ; |DE2_CLOCK|Selector14~45              ; combout          ;
+; |DE2_CLOCK|Selector15~38              ; |DE2_CLOCK|Selector15~38              ; combout          ;
+; |DE2_CLOCK|Selector23~38              ; |DE2_CLOCK|Selector23~38              ; combout          ;
+; |DE2_CLOCK|Selector17~38              ; |DE2_CLOCK|Selector17~38              ; combout          ;
+; |DE2_CLOCK|Selector18~38              ; |DE2_CLOCK|Selector18~38              ; combout          ;
+; |DE2_CLOCK|Selector20~38              ; |DE2_CLOCK|Selector20~38              ; combout          ;
+; |DE2_CLOCK|Selector21~38              ; |DE2_CLOCK|Selector21~38              ; combout          ;
+; |DE2_CLOCK|Selector16~38              ; |DE2_CLOCK|Selector16~38              ; combout          ;
+; |DE2_CLOCK|Selector19~38              ; |DE2_CLOCK|Selector19~38              ; combout          ;
+; |DE2_CLOCK|Selector22~38              ; |DE2_CLOCK|Selector22~38              ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[6]~197     ; |DE2_CLOCK|CLK_COUNT_400HZ[6]~308     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[7]~198     ; |DE2_CLOCK|CLK_COUNT_400HZ[7]~309     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[8]~199     ; |DE2_CLOCK|CLK_COUNT_400HZ[8]~310     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~200     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~311     ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[10]~196    ; |DE2_CLOCK|CLK_COUNT_400HZ[10]~312    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[11]~195    ; |DE2_CLOCK|CLK_COUNT_400HZ[11]~313    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[12]~191    ; |DE2_CLOCK|CLK_COUNT_400HZ[12]~314    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[13]~192    ; |DE2_CLOCK|CLK_COUNT_400HZ[13]~315    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[14]~193    ; |DE2_CLOCK|CLK_COUNT_400HZ[14]~316    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[15]~194    ; |DE2_CLOCK|CLK_COUNT_400HZ[15]~317    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[16]~187    ; |DE2_CLOCK|CLK_COUNT_400HZ[16]~318    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[9]~319     ; |DE2_CLOCK|CLK_COUNT_400HZ[9]~319     ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[17]~188    ; |DE2_CLOCK|CLK_COUNT_400HZ[17]~320    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[18]~189    ; |DE2_CLOCK|CLK_COUNT_400HZ[18]~321    ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_400HZ[19]~190    ; |DE2_CLOCK|CLK_COUNT_400HZ[19]~190    ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[0]~264      ; |DE2_CLOCK|CLK_COUNT_10HZ[0]~281      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[1]~265      ; |DE2_CLOCK|CLK_COUNT_10HZ[1]~282      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[2]~262      ; |DE2_CLOCK|CLK_COUNT_10HZ[2]~283      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[3]~263      ; |DE2_CLOCK|CLK_COUNT_10HZ[3]~284      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[4]~261      ; |DE2_CLOCK|CLK_COUNT_10HZ[4]~285      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[5]~258      ; |DE2_CLOCK|CLK_COUNT_10HZ[5]~286      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; combout          ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[6]~259      ; |DE2_CLOCK|CLK_COUNT_10HZ[6]~287      ; cout             ;
+; |DE2_CLOCK|CLK_COUNT_10HZ[7]~260      ; |DE2_CLOCK|CLK_COUNT_10HZ[7]~260      ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[0]               ; |DE2_CLOCK|BCD_MIND0[0]               ; regout           ;
+; |DE2_CLOCK|BCD_HRD0[0]                ; |DE2_CLOCK|BCD_HRD0[0]                ; regout           ;
+; |DE2_CLOCK|Selector8~129              ; |DE2_CLOCK|Selector8~129              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[0]               ; |DE2_CLOCK|BCD_MIND1[0]               ; regout           ;
+; |DE2_CLOCK|Selector8~130              ; |DE2_CLOCK|Selector8~130              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[0]               ; |DE2_CLOCK|BCD_SECD1[0]               ; regout           ;
+; |DE2_CLOCK|Selector8~131              ; |DE2_CLOCK|Selector8~131              ; combout          ;
+; |DE2_CLOCK|state.display_clear        ; |DE2_CLOCK|state.display_clear        ; regout           ;
+; |DE2_CLOCK|Selector8~132              ; |DE2_CLOCK|Selector8~132              ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]                ; |DE2_CLOCK|BCD_HRD1[0]                ; regout           ;
+; |DE2_CLOCK|Selector8~133              ; |DE2_CLOCK|Selector8~133              ; combout          ;
+; |DE2_CLOCK|Selector8~134              ; |DE2_CLOCK|Selector8~134              ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]                ; |DE2_CLOCK|BCD_HRD1[1]                ; regout           ;
+; |DE2_CLOCK|Selector7~148              ; |DE2_CLOCK|Selector7~148              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[1]               ; |DE2_CLOCK|BCD_MIND1[1]               ; regout           ;
+; |DE2_CLOCK|BCD_HRD0[1]                ; |DE2_CLOCK|BCD_HRD0[1]                ; regout           ;
+; |DE2_CLOCK|Selector7~149              ; |DE2_CLOCK|Selector7~149              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[1]               ; |DE2_CLOCK|BCD_SECD1[1]               ; regout           ;
+; |DE2_CLOCK|BCD_MIND0[1]               ; |DE2_CLOCK|BCD_MIND0[1]               ; regout           ;
+; |DE2_CLOCK|Selector7~150              ; |DE2_CLOCK|Selector7~150              ; combout          ;
+; |DE2_CLOCK|Selector7~151              ; |DE2_CLOCK|Selector7~151              ; combout          ;
+; |DE2_CLOCK|Selector7~152              ; |DE2_CLOCK|Selector7~152              ; combout          ;
+; |DE2_CLOCK|Selector7~153              ; |DE2_CLOCK|Selector7~153              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[2]               ; |DE2_CLOCK|BCD_SECD1[2]               ; regout           ;
+; |DE2_CLOCK|BCD_MIND1[2]               ; |DE2_CLOCK|BCD_MIND1[2]               ; regout           ;
+; |DE2_CLOCK|Selector6~151              ; |DE2_CLOCK|Selector6~151              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0[2]                ; |DE2_CLOCK|BCD_HRD0[2]                ; regout           ;
+; |DE2_CLOCK|BCD_HRD1[2]                ; |DE2_CLOCK|BCD_HRD1[2]                ; regout           ;
+; |DE2_CLOCK|Selector6~152              ; |DE2_CLOCK|Selector6~152              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[2]               ; |DE2_CLOCK|BCD_MIND0[2]               ; regout           ;
+; |DE2_CLOCK|Selector6~153              ; |DE2_CLOCK|Selector6~153              ; combout          ;
+; |DE2_CLOCK|Selector6~154              ; |DE2_CLOCK|Selector6~154              ; combout          ;
+; |DE2_CLOCK|state.display_on           ; |DE2_CLOCK|state.display_on           ; regout           ;
+; |DE2_CLOCK|Selector6~155              ; |DE2_CLOCK|Selector6~155              ; combout          ;
+; |DE2_CLOCK|Selector6~156              ; |DE2_CLOCK|Selector6~156              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0[3]                ; |DE2_CLOCK|BCD_HRD0[3]                ; regout           ;
+; |DE2_CLOCK|BCD_HRD1[3]                ; |DE2_CLOCK|BCD_HRD1[3]                ; regout           ;
+; |DE2_CLOCK|Selector5~179              ; |DE2_CLOCK|Selector5~179              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[3]               ; |DE2_CLOCK|BCD_MIND0[3]               ; regout           ;
+; |DE2_CLOCK|Selector5~180              ; |DE2_CLOCK|Selector5~180              ; combout          ;
+; |DE2_CLOCK|Selector5~181              ; |DE2_CLOCK|Selector5~181              ; combout          ;
+; |DE2_CLOCK|state.display_off          ; |DE2_CLOCK|state.display_off          ; regout           ;
+; |DE2_CLOCK|Selector5~182              ; |DE2_CLOCK|Selector5~182              ; combout          ;
+; |DE2_CLOCK|state.reset1               ; |DE2_CLOCK|state.reset1               ; regout           ;
+; |DE2_CLOCK|Selector5~183              ; |DE2_CLOCK|Selector5~183              ; combout          ;
+; |DE2_CLOCK|state.func_set             ; |DE2_CLOCK|state.func_set             ; regout           ;
+; |DE2_CLOCK|state.reset2               ; |DE2_CLOCK|state.reset2               ; regout           ;
+; |DE2_CLOCK|state.reset3               ; |DE2_CLOCK|state.reset3               ; regout           ;
+; |DE2_CLOCK|Selector5~184              ; |DE2_CLOCK|Selector5~184              ; combout          ;
+; |DE2_CLOCK|Selector5~185              ; |DE2_CLOCK|Selector5~185              ; combout          ;
+; |DE2_CLOCK|Selector5~186              ; |DE2_CLOCK|Selector5~186              ; combout          ;
+; |DE2_CLOCK|state.display_off~46       ; |DE2_CLOCK|state.display_off~46       ; combout          ;
+; |DE2_CLOCK|Selector4~38               ; |DE2_CLOCK|Selector4~38               ; combout          ;
+; |DE2_CLOCK|Selector2~38               ; |DE2_CLOCK|Selector2~38               ; combout          ;
+; |DE2_CLOCK|next_command.mode_set      ; |DE2_CLOCK|next_command.mode_set      ; regout           ;
+; |DE2_CLOCK|state~260                  ; |DE2_CLOCK|state~260                  ; combout          ;
+; |DE2_CLOCK|next_command.return_home   ; |DE2_CLOCK|next_command.return_home   ; regout           ;
+; |DE2_CLOCK|state~261                  ; |DE2_CLOCK|state~261                  ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~364              ; |DE2_CLOCK|BCD_MIND0~364              ; combout          ;
+; |DE2_CLOCK|LessThan3~88               ; |DE2_CLOCK|LessThan3~88               ; combout          ;
+; |DE2_CLOCK|LessThan4~95               ; |DE2_CLOCK|LessThan4~95               ; combout          ;
+; |DE2_CLOCK|BCD_MIND0[0]~365           ; |DE2_CLOCK|BCD_MIND0[0]~365           ; combout          ;
+; |DE2_CLOCK|process2~114               ; |DE2_CLOCK|process2~114               ; combout          ;
+; |DE2_CLOCK|process2~115               ; |DE2_CLOCK|process2~115               ; combout          ;
+; |DE2_CLOCK|process2~116               ; |DE2_CLOCK|process2~116               ; combout          ;
+; |DE2_CLOCK|process2~117               ; |DE2_CLOCK|process2~117               ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~383               ; |DE2_CLOCK|BCD_HRD0~383               ; combout          ;
+; |DE2_CLOCK|LessThan6~81               ; |DE2_CLOCK|LessThan6~81               ; combout          ;
+; |DE2_CLOCK|LessThan5~74               ; |DE2_CLOCK|LessThan5~74               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]~589            ; |DE2_CLOCK|BCD_HRD1[0]~589            ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~351              ; |DE2_CLOCK|BCD_MIND1~351              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1[0]~352           ; |DE2_CLOCK|BCD_MIND1[0]~352           ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~330              ; |DE2_CLOCK|BCD_SECD1~330              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1[0]~331           ; |DE2_CLOCK|BCD_SECD1[0]~331           ; combout          ;
+; |DE2_CLOCK|next_command.display_clear ; |DE2_CLOCK|next_command.display_clear ; regout           ;
+; |DE2_CLOCK|state~262                  ; |DE2_CLOCK|state~262                  ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]~590            ; |DE2_CLOCK|BCD_HRD1[1]~590            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[0]~591            ; |DE2_CLOCK|BCD_HRD1[0]~591            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[1]~592            ; |DE2_CLOCK|BCD_HRD1[1]~592            ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~353              ; |DE2_CLOCK|BCD_MIND1~353              ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~384               ; |DE2_CLOCK|BCD_HRD0~384               ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~332              ; |DE2_CLOCK|BCD_SECD1~332              ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~366              ; |DE2_CLOCK|BCD_MIND0~366              ; combout          ;
+; |DE2_CLOCK|BCD_SECD1~333              ; |DE2_CLOCK|BCD_SECD1~333              ; combout          ;
+; |DE2_CLOCK|BCD_MIND1~354              ; |DE2_CLOCK|BCD_MIND1~354              ; combout          ;
+; |DE2_CLOCK|process2~118               ; |DE2_CLOCK|process2~118               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[2]~593            ; |DE2_CLOCK|BCD_HRD1[2]~593            ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[2]~594            ; |DE2_CLOCK|BCD_HRD1[2]~594            ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~367              ; |DE2_CLOCK|BCD_MIND0~367              ; combout          ;
+; |DE2_CLOCK|next_command.display_on    ; |DE2_CLOCK|next_command.display_on    ; regout           ;
+; |DE2_CLOCK|state~263                  ; |DE2_CLOCK|state~263                  ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~385               ; |DE2_CLOCK|BCD_HRD0~385               ; combout          ;
+; |DE2_CLOCK|BCD_HRD1[3]~595            ; |DE2_CLOCK|BCD_HRD1[3]~595            ; combout          ;
+; |DE2_CLOCK|BCD_MIND0~368              ; |DE2_CLOCK|BCD_MIND0~368              ; combout          ;
+; |DE2_CLOCK|next_command.display_off   ; |DE2_CLOCK|next_command.display_off   ; regout           ;
+; |DE2_CLOCK|state~264                  ; |DE2_CLOCK|state~264                  ; combout          ;
+; |DE2_CLOCK|next_command.func_set      ; |DE2_CLOCK|next_command.func_set      ; regout           ;
+; |DE2_CLOCK|state~265                  ; |DE2_CLOCK|state~265                  ; combout          ;
+; |DE2_CLOCK|next_command.reset2        ; |DE2_CLOCK|next_command.reset2        ; regout           ;
+; |DE2_CLOCK|state~266                  ; |DE2_CLOCK|state~266                  ; combout          ;
+; |DE2_CLOCK|next_command.reset3        ; |DE2_CLOCK|next_command.reset3        ; regout           ;
+; |DE2_CLOCK|state~267                  ; |DE2_CLOCK|state~267                  ; combout          ;
+; |DE2_CLOCK|Selector13~38              ; |DE2_CLOCK|Selector13~38              ; combout          ;
+; |DE2_CLOCK|Selector24~38              ; |DE2_CLOCK|Selector24~38              ; combout          ;
+; |DE2_CLOCK|Selector28~38              ; |DE2_CLOCK|Selector28~38              ; combout          ;
+; |DE2_CLOCK|Selector12~38              ; |DE2_CLOCK|Selector12~38              ; combout          ;
+; |DE2_CLOCK|Selector27~38              ; |DE2_CLOCK|Selector27~38              ; combout          ;
+; |DE2_CLOCK|Selector11~38              ; |DE2_CLOCK|Selector11~38              ; combout          ;
+; |DE2_CLOCK|Selector25~38              ; |DE2_CLOCK|Selector25~38              ; combout          ;
+; |DE2_CLOCK|Selector26~38              ; |DE2_CLOCK|Selector26~38              ; combout          ;
+; |DE2_CLOCK|Selector14~46              ; |DE2_CLOCK|Selector14~46              ; combout          ;
+; |DE2_CLOCK|Selector3~40               ; |DE2_CLOCK|Selector3~40               ; combout          ;
+; |DE2_CLOCK|BCD_HRD0~386               ; |DE2_CLOCK|BCD_HRD0~386               ; combout          ;
+; |DE2_CLOCK|reset                      ; |DE2_CLOCK|reset                      ; combout          ;
+; |DE2_CLOCK|LCD_RS                     ; |DE2_CLOCK|LCD_RS                     ; padio            ;
+; |DE2_CLOCK|LCD_E                      ; |DE2_CLOCK|LCD_E                      ; padio            ;
+; |DE2_CLOCK|LCD_ON                     ; |DE2_CLOCK|LCD_ON                     ; padio            ;
+; |DE2_CLOCK|RESET_LED                  ; |DE2_CLOCK|RESET_LED                  ; padio            ;
+; |DE2_CLOCK|SEC_LED                    ; |DE2_CLOCK|SEC_LED                    ; padio            ;
+; |DE2_CLOCK|LCD_RW                     ; |DE2_CLOCK|LCD_RW                     ; padio            ;
+; |DE2_CLOCK|DATA_BUS[0]~output         ; |DE2_CLOCK|DATA_BUS[0]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[1]~output         ; |DE2_CLOCK|DATA_BUS[1]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[2]~output         ; |DE2_CLOCK|DATA_BUS[2]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[3]~output         ; |DE2_CLOCK|DATA_BUS[3]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[4]~output         ; |DE2_CLOCK|DATA_BUS[4]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[5]~output         ; |DE2_CLOCK|DATA_BUS[5]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[6]~output         ; |DE2_CLOCK|DATA_BUS[6]~output         ; padio            ;
+; |DE2_CLOCK|DATA_BUS[7]~output         ; |DE2_CLOCK|DATA_BUS[7]~output         ; padio            ;
+; |DE2_CLOCK|reset~clk_delay_ctrl       ; |DE2_CLOCK|reset~clk_delay_ctrl       ; clkout           ;
+; |DE2_CLOCK|CLK_10HZ~clkctrl           ; |DE2_CLOCK|CLK_10HZ~clkctrl           ; outclk           ;
+; |DE2_CLOCK|CLK_400HZ~clkctrl          ; |DE2_CLOCK|CLK_400HZ~clkctrl          ; outclk           ;
+; |DE2_CLOCK|reset~clkctrl              ; |DE2_CLOCK|reset~clkctrl              ; outclk           ;
+; |DE2_CLOCK|state.reset1~feeder        ; |DE2_CLOCK|state.reset1~feeder        ; combout          ;
++---------------------------------------+---------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Sep 28 21:21:57 2006
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off DE2_Clock -c DE2_Clock
+Warning: Can't display state machine states -- register holding state machine bit "|DE2_CLOCK|next_command.hold" was synthesized away
+Warning: Can't display state machine states -- register holding state machine bit "|DE2_CLOCK|next_command.reset1" was synthesized away
+Warning: Can't display state machine states -- register holding state machine bit "|DE2_CLOCK|next_command.toggle_e" was synthesized away
+Info: Inverted registers were found during simulation
+    Info: Register: |DE2_CLOCK|LCD_E~reg0
+    Info: Register: |DE2_CLOCK|DATA_BUS_VALUE[3]
+    Info: Register: |DE2_CLOCK|DATA_BUS_VALUE[4]
+    Info: Register: |DE2_CLOCK|DATA_BUS_VALUE[5]
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is       6.82 %
+Info: Number of transitions in simulation is 673
+Info: Vector file DE2_Clock.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II Simulator was successful. 0 errors, 3 warnings
+    Info: Processing ended: Thu Sep 28 21:21:59 2006
+    Info: Elapsed time: 00:00:03
+
+

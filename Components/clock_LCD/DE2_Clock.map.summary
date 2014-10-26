@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Sep 17 15:36:35 2008
+Quartus II Version : 8.0 Build 231 07/10/2008 SP 1 SJ Web Edition
+Revision Name : DE2_Clock
+Top-level Entity Name : DE2_CLOCK
+Family : Cyclone II
+Total logic elements : 157
+    Total combinational functions : 157
+    Dedicated logic registers : 104
+Total registers : 104
+Total pins : 16
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

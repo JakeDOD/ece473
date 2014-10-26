@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Sep 17 15:36:58 2008
+Quartus II Version : 8.0 Build 231 07/10/2008 SP 1 SJ Web Edition
+Revision Name : DE2_Clock
+Top-level Entity Name : DE2_CLOCK
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 158 / 33,216 ( < 1 % )
+    Total combinational functions : 158 / 33,216 ( < 1 % )
+    Dedicated logic registers : 104 / 33,216 ( < 1 % )
+Total registers : 104
+Total pins : 16 / 475 ( 3 % )
+Total virtual pins : 0
+Total memory bits : 0 / 483,840 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

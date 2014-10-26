@@ -1,0 +1,134 @@
+-- MAX+plus II Compiler Fit File      
+-- Version 9.23 3/19/99               
+-- Compiled: 05/19/1999 14:43:35      
+
+-- Copyright (C) 1988-1999 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+CHIP "clk_div"
+BEGIN
+
+    DEVICE = "EPF10K20RC240-4";
+
+    "clock_25Mhz"                  : INPUT_PIN  = 91     ;
+    "clock_1Hz"                    : OUTPUT_PIN = 164    ;
+    "clock_1KHz"                   : OUTPUT_PIN = 167    ;
+    "clock_1MHz"                   : OUTPUT_PIN = 159    ;
+    "clock_10Hz"                   : OUTPUT_PIN = 166    ;
+    "clock_10KHz"                  : OUTPUT_PIN = 15     ;
+    "clock_100Hz"                  : OUTPUT_PIN = 163    ;
+    "clock_100KHz"                 : OUTPUT_PIN = 17     ;
+    "|LPM_ADD_SUB:119|addcore:adder|:59" : LOCATION   = LC2_C1 ;
+    ":2"                           : LOCATION   = LC1_C1 ;
+    ":4"                           : LOCATION   = LC4_B13;
+    ":6"                           : LOCATION   = LC2_B14;
+    ":8"                           : LOCATION   = LC2_B3 ;
+    ":10"                          : LOCATION   = LC5_B4 ;
+    ":12"                          : LOCATION   = LC3_B5 ;
+    ":14"                          : LOCATION   = LC3_B2 ;
+    ":16"                          : LOCATION   = LC4_C1 ;  -- count_1Mhz4
+    ":17"                          : LOCATION   = LC5_C1 ;  -- count_1Mhz3
+    ":18"                          : LOCATION   = LC6_C1 ;  -- count_1Mhz2
+    ":19"                          : LOCATION   = LC7_C1 ;  -- count_1Mhz1
+    ":20"                          : LOCATION   = LC8_C1 ;  -- count_1Mhz0
+    ":21"                          : LOCATION   = LC3_C1 ;  -- clock_1Mhz_int
+    ":22"                          : LOCATION   = LC2_B15;  -- clock_100Khz_int
+    ":23"                          : LOCATION   = LC1_B15;  -- clock_10Khz_int
+    ":24"                          : LOCATION   = LC1_B16;  -- clock_1Khz_int
+    ":25"                          : LOCATION   = LC2_B6 ;  -- clock_100hz_int
+    ":26"                          : LOCATION   = LC1_B6 ;  -- clock_10Hz_int
+    ":27"                          : LOCATION   = LC4_B2 ;  -- clock_1Hz_int
+    ":28"                          : LOCATION   = LC8_B15;  -- count_100Khz2
+    ":29"                          : LOCATION   = LC7_B15;  -- count_100Khz1
+    ":30"                          : LOCATION   = LC6_B15;  -- count_100Khz0
+    ":31"                          : LOCATION   = LC3_B15;  -- count_10Khz2
+    ":32"                          : LOCATION   = LC4_B15;  -- count_10Khz1
+    ":33"                          : LOCATION   = LC5_B15;  -- count_10Khz0
+    ":34"                          : LOCATION   = LC2_B16;  -- count_1Khz2
+    ":35"                          : LOCATION   = LC3_B16;  -- count_1Khz1
+    ":36"                          : LOCATION   = LC4_B16;  -- count_1Khz0
+    ":37"                          : LOCATION   = LC7_B6 ;  -- count_100hz2
+    ":38"                          : LOCATION   = LC3_B6 ;  -- count_100hz1
+    ":39"                          : LOCATION   = LC8_B6 ;  -- count_100hz0
+    ":40"                          : LOCATION   = LC6_B6 ;  -- count_10hz2
+    ":41"                          : LOCATION   = LC5_B6 ;  -- count_10hz1
+    ":42"                          : LOCATION   = LC4_B6 ;  -- count_10hz0
+    ":43"                          : LOCATION   = LC2_B2 ;  -- count_1hz2
+    ":44"                          : LOCATION   = LC1_B2 ;  -- count_1hz1
+    ":45"                          : LOCATION   = LC5_B2 ;  -- count_1hz0
+
+END;
+
+INTERNAL_INFO "clk_div"
+BEGIN
+	DEVICE = EPF10K20RC240-4;
+    OD5P91  : LORAX = "1:FB5->LC1_C1,->LC4_B13,->LC2_B14,->LC2_B3,->LC5_B4,->LC3_B5,->LC3_B2,->LC4_C1,->LC5_C1,->LC6_C1,->LC7_C1,->LC8_C1,->LC3_C1|";
+    LC1_C1  : LORAX = "1:MSW0R2C0,HHL22R2->OH8R2P159|";
+    LC4_B13 : LORAX = "1:MSW3R1C12,HHR9R1->OH3R1P17|";
+    LC2_B14 : LORAX = "1:MSW2R1C12,HHR3R1->OH2R1P15|";
+    LC2_B3  : LORAX = "1:MSW1R1C2,HHL2R1->OH9R1P167|";
+    LC5_B4  : LORAX = "1:MSW4R1C3,HHL38R1->OH12R1P163|";
+    LC3_B5  : LORAX = "1:MSW2R1C4,HHL0R1->OH10R1P166|";
+    LC3_B2  : LORAX = "1:MSW3R1C0,HHL9R1->OH11R1P164|";
+    LC3_C1  : LORAX = "1:MSW2R2C0,V7C0,G17R1,PA8R1C14->LC2_B15,->LC8_B15,->LC7_B15,->LC6_B15|";
+    LC2_B15 : LORAX = "1:MSW1R1C14,HHR2R1,PA20R1C12->LC4_B13|";
+    LC1_B15 : LORAX = "1:MSW0R1C14,HHR21R1|2:PA15R1C15->LC1_B16,->LC2_B16,->LC3_B16,->LC4_B16|,2:PA15R1C13->LC2_B14||";
+    LC1_B16 : LORAX = "1:MSW0R1C15,G42R1|2:PA17R1C5->LC2_B6,->LC7_B6,->LC3_B6,->LC8_B6|,2:PA17R1C2->LC2_B3||";
+    LC2_B6  : LORAX = "1:MSW1R1C5,HHL16R1,PA9R1C3->LC5_B4|";
+    LC1_B6  : LORAX = "1:MSW0R1C5,HHL20R1|2:PA16R1C1->LC4_B2,->LC2_B2,->LC1_B2,->LC5_B2|,2:PA16R1C4->LC3_B5||";
+	LC2_C1  : LORAX2 = "X, X, LC7_C1, LC8_C1";
+	LC1_C1  : LORAX2 = "X, X, X, LC3_C1";
+	LC4_B13 : LORAX2 = "X, X, X, LC2_B15";
+	LC2_B14 : LORAX2 = "X, X, X, LC1_B15";
+	LC2_B3  : LORAX2 = "X, X, X, LC1_B16";
+	LC5_B4  : LORAX2 = "X, X, X, LC2_B6";
+	LC3_B5  : LORAX2 = "X, X, X, LC1_B6";
+	LC3_B2  : LORAX2 = "X, X, X, LC4_B2";
+	LC4_C1  : LORAX2 = "LC5_C1, LC4_C1, LC6_C1, LC2_C1";
+	LC5_C1  : LORAX2 = "LC5_C1, LC4_C1, LC6_C1, LC2_C1";
+	LC6_C1  : LORAX2 = "LC6_C1, LC4_C1, LC5_C1, LC2_C1";
+	LC7_C1  : LORAX2 = "LC4_C1, LC5_C1, LC7_C1, LC8_C1";
+	LC8_C1  : LORAX2 = "X, LC5_C1, LC4_C1, LC8_C1";
+	LC3_C1  : LORAX2 = "X, LC4_C1, LC6_C1, LC5_C1";
+	LC2_B15 : LORAX2 = "LC8_B15, LC6_B15, LC7_B15, LC2_B15";
+	LC1_B15 : LORAX2 = "LC3_B15, LC5_B15, LC4_B15, LC1_B15";
+	LC1_B16 : LORAX2 = "LC2_B16, LC4_B16, LC3_B16, LC1_B16";
+	LC2_B6  : LORAX2 = "LC7_B6, LC8_B6, LC3_B6, LC2_B6";
+	LC1_B6  : LORAX2 = "LC6_B6, LC4_B6, LC5_B6, LC1_B6";
+	LC4_B2  : LORAX2 = "LC4_B2, LC2_B2, LC5_B2, LC1_B2";
+	LC8_B15 : LORAX2 = "X, LC7_B15, LC6_B15, LC8_B15";
+	LC7_B15 : LORAX2 = "X, X, LC7_B15, LC6_B15";
+	LC6_B15 : LORAX2 = "X, LC8_B15, LC7_B15, LC6_B15";
+	LC3_B15 : LORAX2 = "X, LC4_B15, LC5_B15, LC3_B15";
+	LC4_B15 : LORAX2 = "X, X, LC4_B15, LC5_B15";
+	LC5_B15 : LORAX2 = "X, LC3_B15, LC4_B15, LC5_B15";
+	LC2_B16 : LORAX2 = "X, LC3_B16, LC4_B16, LC2_B16";
+	LC3_B16 : LORAX2 = "X, X, LC3_B16, LC4_B16";
+	LC4_B16 : LORAX2 = "X, LC2_B16, LC3_B16, LC4_B16";
+	LC7_B6  : LORAX2 = "X, LC3_B6, LC8_B6, LC7_B6";
+	LC3_B6  : LORAX2 = "X, X, LC3_B6, LC8_B6";
+	LC8_B6  : LORAX2 = "X, LC7_B6, LC3_B6, LC8_B6";
+	LC6_B6  : LORAX2 = "X, LC5_B6, LC4_B6, LC6_B6";
+	LC5_B6  : LORAX2 = "X, X, LC5_B6, LC4_B6";
+	LC4_B6  : LORAX2 = "X, LC6_B6, LC5_B6, LC4_B6";
+	LC2_B2  : LORAX2 = "X, LC1_B2, LC5_B2, LC2_B2";
+	LC1_B2  : LORAX2 = "X, X, LC1_B2, LC5_B2";
+	LC5_B2  : LORAX2 = "X, LC2_B2, LC1_B2, LC5_B2";
+END;

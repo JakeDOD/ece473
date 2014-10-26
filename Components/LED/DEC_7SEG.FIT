@@ -1,0 +1,97 @@
+-- MAX+plus II Compiler Fit File      
+-- Version 9.23 3/19/99               
+-- Compiled: 05/19/1999 14:42:29      
+
+-- Copyright (C) 1988-1999 Altera Corporation
+-- Any megafunction design, and related net list (encrypted or decrypted),
+-- support information, device programming or simulation file, and any other
+-- associated documentation or information provided by Altera or a partner
+-- under Altera's Megafunction Partnership Program may be used only to
+-- program PLD devices (but not masked PLD devices) from Altera.  Any other
+-- use of such megafunction design, net list, support information, device
+-- programming or simulation file, or any other related documentation or
+-- information is prohibited for any other purpose, including, but not
+-- limited to modification, reverse engineering, de-compiling, or use with
+-- any other silicon devices, unless such use is explicitly licensed under
+-- a separate agreement with Altera or a megafunction partner.  Title to
+-- the intellectual property, including patents, copyrights, trademarks,
+-- trade secrets, or maskworks, embodied in any such megafunction design,
+-- net list, support information, device programming or simulation file, or
+-- any other related documentation or information provided by Altera or a
+-- megafunction partner, remains with Altera, the megafunction partner, or
+-- their respective licensors.  No other licenses, including any licenses
+-- needed under any third party's intellectual property, are provided herein.
+
+CHIP "dec_7seg"
+BEGIN
+
+    DEVICE = "EPF10K20RC240-4";
+
+    "hex_digit0"                   : INPUT_PIN  = 212    ;
+    "hex_digit1"                   : INPUT_PIN  = 210    ;
+    "hex_digit2"                   : INPUT_PIN  = 90     ;
+    "hex_digit3"                   : INPUT_PIN  = 92     ;
+    "segment_a"                    : OUTPUT_PIN = 175    ;
+    "segment_b"                    : OUTPUT_PIN = 174    ;
+    "segment_c"                    : OUTPUT_PIN = 173    ;
+    "segment_d"                    : OUTPUT_PIN = 172    ;
+    "segment_e"                    : OUTPUT_PIN = 171    ;
+    "segment_f"                    : OUTPUT_PIN = 169    ;
+    "segment_g"                    : OUTPUT_PIN = 181    ;
+    "~444~1"                       : LOCATION   = LC7_A4 ;
+    ":456"                         : LOCATION   = LC3_A4 ;
+    ":492"                         : LOCATION   = LC2_A4 ;
+    ":528"                         : LOCATION   = LC8_A2 ;
+    ":540"                         : LOCATION   = LC7_A2 ;
+    ":543"                         : LOCATION   = LC2_A3 ;
+    ":591"                         : LOCATION   = LC3_A1 ;
+    ":638"                         : LOCATION   = LC4_A2 ;
+    ":639"                         : LOCATION   = LC3_A2 ;
+    ":687"                         : LOCATION   = LC5_A2 ;
+    "~687~1"                       : LOCATION   = LC6_A4 ;
+    "~687~2"                       : LOCATION   = LC5_A4 ;
+    "~687~3"                       : LOCATION   = LC1_A4 ;
+    ":729"                         : LOCATION   = LC2_A2 ;
+    ":735"                         : LOCATION   = LC6_A2 ;
+    "~771~1"                       : LOCATION   = LC4_A4 ;
+    ":783"                         : LOCATION   = LC7_A1 ;
+    "~825~1"                       : LOCATION   = LC1_A2 ;
+    ":833"                         : LOCATION   = LC1_A1 ;
+
+END;
+
+INTERNAL_INFO "dec_7seg"
+BEGIN
+	DEVICE = EPF10K20RC240-4;
+    OD0P212 : LORAX = "1:FB0|2:FH0R0|3:PA0R0C3->LC3_A4,->LC2_A4,->LC6_A4,->LC4_A4|,3:PA0R0C0->LC3_A1,->LC7_A1,->LC1_A1|,3:PA0R0C2->LC2_A3|,3:PA0R0C1->LC8_A2,->LC7_A2,->LC4_A2,->LC2_A2|||";
+    OD1P210 : LORAX = "1:FB1|2:FH1R0|3:PA20R0C3->LC3_A4,->LC2_A4,->LC6_A4,->LC5_A4,->LC4_A4|,3:PA20R0C0->LC3_A1,->LC7_A1,->LC1_A1|,3:PA20R0C2->LC2_A3|,3:PA20R0C1->LC8_A2,->LC7_A2,->LC4_A2,->LC2_A2,->LC1_A2|||";
+    OD2P90  : LORAX = "1:FB2|2:FH2R0|3:PA6R0C3->LC7_A4,->LC3_A4,->LC2_A4,->LC6_A4,->LC4_A4|,3:PA6R0C0->LC3_A1,->LC7_A1,->LC1_A1|,3:PA6R0C2->LC2_A3|,3:PA6R0C1->LC8_A2,->LC7_A2,->LC4_A2,->LC2_A2,->LC1_A2|||";
+    OD3P92  : LORAX = "1:FB3|2:FH3R0|3:PA5R0C3->LC7_A4,->LC3_A4,->LC2_A4,->LC6_A4,->LC4_A4|,3:PA5R0C0->LC3_A1,->LC7_A1,->LC1_A1|,3:PA5R0C2->LC2_A3|,3:PA5R0C1->LC8_A2,->LC7_A2,->LC4_A2,->LC2_A2,->LC1_A2|||";
+    LC2_A3  : LORAX = "1:MSW1R0C2,HHL2R0->OH9R0P175|";
+    LC3_A1  : LORAX = "1:MSW2R0C0,HHL3R0->OH10R0P174|";
+    LC3_A2  : LORAX = "1:MSW3R0C0,HHL9R0->OH11R0P173|";
+    LC1_A4  : LORAX = "1:MSW0R0C3,HHL19R0,PA17R0C1->LC5_A2|";
+    LC5_A2  : LORAX = "1:MSW4R0C1,HHL36R0->OH12R0P172|";
+    LC6_A2  : LORAX = "1:MSW5R0C1,HHL28R0->OH13R0P171|";
+    LC7_A1  : LORAX = "1:MSW6R0C0,HHL29R0->OH14R0P169|";
+    LC1_A1  : LORAX = "1:MSW0R0C0,HHL22R0->OH8R0P181|";
+	LC7_A4  : LORAX2 = "X, X, OD2P90, OD3P92";
+	LC3_A4  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+	LC2_A4  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC8_A2  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+	LC7_A2  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC2_A3  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC3_A1  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC4_A2  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+	LC3_A2  : LORAX2 = "X, LC4_A2, LC7_A2, LC8_A2";
+	LC6_A4  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+	LC5_A4  : LORAX2 = "X, OD1P210, LC6_A4, LC7_A4";
+	LC1_A4  : LORAX2 = "LC3_A4, LC2_A4, LC4_A4, LC5_A4";
+	LC5_A2  : LORAX2 = "LC1_A2, LC7_A2, LC8_A2, LC1_A4";
+	LC2_A2  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+	LC6_A2  : LORAX2 = "X, LC2_A2, LC7_A2, LC8_A2";
+	LC4_A4  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC7_A1  : LORAX2 = "OD0P212, OD1P210, OD2P90, OD3P92";
+	LC1_A2  : LORAX2 = "X, OD1P210, OD2P90, OD3P92";
+	LC1_A1  : LORAX2 = "OD1P210, OD0P212, OD2P90, OD3P92";
+END;
