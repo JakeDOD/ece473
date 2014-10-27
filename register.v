@@ -7,7 +7,7 @@ module register(
 	output reg[31:0] data_out);
 	
 	initial begin
-		data_out = 32'hf0f0f0f0;
+		data_out = 32'h00000000;
 	end
 	
 	always @(posedge clock) begin

@@ -153,5 +153,5 @@ endmodule
 // Retrieval info: GEN_FILE: TYPE_NORMAL romlpm.cmp FALSE
 // Retrieval info: GEN_FILE: TYPE_NORMAL romlpm.bsf TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL romlpm_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL romlpm_bb.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL romlpm_bb.v FALSE
 // Retrieval info: LIB_FILE: altera_mf

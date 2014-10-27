@@ -3,17 +3,18 @@
 module PC(
 	input wire clock,
 	input wire reset,
-	output reg[31:0] data_out);
+	input wire[31:0] pc_in,
+	output reg[31:0] pc_out);
 	
 	initial begin
-		data_out = 32'h00000000;
+		pc_out = 32'h00000000 - 4;
 	end
 	
 	always @(posedge clock) begin
 		if (reset == 1'b1) begin
-			data_out <= 32'h00000000;
+			pc_out <= 32'h00000000 - 4;
 		end else begin
-			data_out <= data_out + 4;
+			pc_out <= pc_in;
 		end
 	end
 	
