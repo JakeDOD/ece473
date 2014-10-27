@@ -24,7 +24,9 @@ module reg_file(
 				rf[i] <= 0;
 			end
 		end else if (writeEn == 1'b1) begin
-			rf[writeAddr] <= writeData;
+			if (writeAddr != 32'h0) begin
+				rf[writeAddr] <= writeData;
+			end
 		end
 	end
 	

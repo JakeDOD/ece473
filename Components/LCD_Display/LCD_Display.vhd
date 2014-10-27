@@ -39,12 +39,12 @@ ENTITY LCD_Display IS
 -- Example "A" is row 4 column 1, so hex value is X"41"
 -- *see LCD Controller's Datasheet for other graphics characters available
 --
-	PORT(reset, clk_48Mhz			: IN	STD_LOGIC;
-		 inline1			: IN    STD_LOGIC_VECTOR(31 DOWNTO 0);
-		 inline2			: IN	  STD_LOGIC_VECTOR(31 DOWNTO 0);
-		 LCD_RS, LCD_EN				: OUT	STD_LOGIC;
-		 LCD_RW						: OUT   STD_LOGIC;
-		 DATA_BUS					: INOUT	STD_LOGIC_VECTOR(7 DOWNTO 0));
+	PORT(reset, clk_48Mhz			: IN		STD_LOGIC;
+		 inline1							: IN    	STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 inline2							: IN	  	STD_LOGIC_VECTOR(31 DOWNTO 0);
+		 LCD_RS, LCD_EN				: OUT		STD_LOGIC;
+		 LCD_RW							: OUT  	STD_LOGIC;
+		 DATA_BUS						: INOUT	STD_LOGIC_VECTOR(7 DOWNTO 0));
 		
 END ENTITY LCD_Display;
 
