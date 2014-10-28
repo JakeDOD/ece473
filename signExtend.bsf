@@ -26,8 +26,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "dataIn[4..0]" (rect 0 0 44 12)(font "Arial" ))
-		(text "dataIn[4..0]" (rect 21 27 65 39)(font "Arial" ))
+		(text "dataIn[15..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "dataIn[15..0]" (rect 21 27 68 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
