@@ -23,6 +23,7 @@ module ID_EX(
 	input wire[31:0] Sign_extended_imm_in,
 	input wire[4:0]  RT_in,
 	input wire[4:0]  RD_in,
+	input wire[4:0]  RS_in,
 	
 	// Control signal outputs
 	output reg MemtoReg_out,
@@ -41,7 +42,8 @@ module ID_EX(
 	output reg[31:0] ALUOperand2_out,
 	output reg[31:0] Immediate_out,
 	output reg[4:0]  RT_out,
-	output reg[4:0]  RD_out);
+	output reg[4:0]  RD_out,
+	output reg[4:0]  RS_out);
 	
 	// Initialize all the outputs to 0
 	initial begin
@@ -61,6 +63,7 @@ module ID_EX(
 		Immediate_out =   32'h00000000;
 		RT_out = 5'b00000;
 		RD_out = 5'b00000;
+		RS_out = 5'b00000;
 	end
 	
 	always @(posedge clock) begin
@@ -81,6 +84,7 @@ module ID_EX(
 			Immediate_out   <= 32'h00000000;
 			RT_out <= 5'b00000;
 			RD_out <= 5'b00000;
+			RS_out <= 5'b00000;
 		end else begin
 			RegDst_out <= RegDst_in;
 			ALUOp_out  <= ALUOp_in;
@@ -98,6 +102,7 @@ module ID_EX(
 			Immediate_out <=   Sign_extended_imm_in;
 			RT_out <= RT_in;
 			RD_out <= RD_in;
+			RS_out <= RS_in;
 		end
 	end
 	

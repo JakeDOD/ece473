@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 336 320)
+	(rect 16 16 336 352)
 	(text "ID_EX" (rect 5 0 33 12)(font "Arial" ))
-	(text "inst" (rect 8 288 20 300)(font "Arial" ))
+	(text "inst" (rect 8 320 20 332)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -136,6 +136,13 @@ applicable agreement for further details.
 		(line (pt 0 272)(pt 16 272)(line_width 3))
 	)
 	(port
+		(pt 0 288)
+		(input)
+		(text "RS_in[4..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "RS_in[4..0]" (rect 21 283 68 295)(font "Arial" ))
+		(line (pt 0 288)(pt 16 288)(line_width 3))
+	)
+	(port
 		(pt 320 32)
 		(output)
 		(text "MemtoReg_out" (rect 0 0 63 12)(font "Arial" ))
@@ -233,7 +240,14 @@ applicable agreement for further details.
 		(text "RD_out[4..0]" (rect 245 235 299 247)(font "Arial" ))
 		(line (pt 320 240)(pt 304 240)(line_width 3))
 	)
+	(port
+		(pt 320 256)
+		(output)
+		(text "RS_out[4..0]" (rect 0 0 53 12)(font "Arial" ))
+		(text "RS_out[4..0]" (rect 246 251 299 263)(font "Arial" ))
+		(line (pt 320 256)(pt 304 256)(line_width 3))
+	)
 	(drawing
-		(rectangle (rect 16 16 304 288)(line_width 1))
+		(rectangle (rect 16 16 304 320)(line_width 1))
 	)
 )
