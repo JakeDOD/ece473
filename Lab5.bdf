@@ -2583,11 +2583,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 160 808)
-	(pt 256 808)
-	(bus)
-)
-(connector
 	(text "ALU_port2_mux_sel[1..0]" (rect 311 880 473 895)(font "Arial" ))
 	(pt 328 872)
 	(pt 432 872)
@@ -2622,16 +2617,6 @@ applicable agreement for further details.
 (connector
 	(pt 328 656)
 	(pt 328 648)
-	(bus)
-)
-(connector
-	(pt 160 528)
-	(pt 160 808)
-	(bus)
-)
-(connector
-	(pt 160 808)
-	(pt 160 912)
 	(bus)
 )
 (connector
@@ -3103,10 +3088,37 @@ applicable agreement for further details.
 	(pt -2336 736)
 	(pt -2336 688)
 )
+(connector
+	(text "branch_addr[31..0]" (rect -2432 752 -2311 767)(font "Arial" ))
+	(pt -2320 768)
+	(pt -2440 768)
+	(bus)
+)
+(connector
+	(text "branch_addr[31..0]" (rect 1192 408 1313 423)(font "Arial" ))
+	(pt 1104 416)
+	(pt 1184 416)
+	(bus)
+)
+(connector
+	(pt 160 824)
+	(pt 256 824)
+	(bus)
+)
+(connector
+	(pt 160 528)
+	(pt 160 824)
+	(bus)
+)
+(connector
+	(pt 160 824)
+	(pt 160 912)
+	(bus)
+)
 (junction (pt 1464 -224))
 (junction (pt -752 832))
 (junction (pt -752 904))
 (junction (pt -752 672))
 (junction (pt -1712 616))
-(junction (pt 160 808))
 (junction (pt 1160 592))
+(junction (pt 160 824))
