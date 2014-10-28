@@ -11,15 +11,15 @@ module forward_unit(
 		if (EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg == RS_in)) begin
 			ALU_port1_mux_sel = 2'b01;									// Forward from EX_MEM
 		end 
-		if (MEM_WB_RegWrite && (MEM_WB_dest_reg != 0) && !(EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg != RS_in)) && (MEM_WB_dest_reg == RS_in)) begin
-			ALU_port1_mux_sel = 2'b10;									// Forward from MEM_WB
+		if (MEM_WB_RegWrite && (MEM_WB_dest_reg != 0) && !(EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg == RS_in)) && (MEM_WB_dest_reg == RS_in)) begin
+			ALU_port1_mux_sel = 2'b10;									// Forward from MEM_WB												//!=
 		end
 		
 		if (EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg == RT_in)) begin
 			ALU_port2_mux_sel = 2'b01;									// Forward from EX_MEM
 		end
-		if (MEM_WB_RegWrite && (MEM_WB_dest_reg != 0) && !(EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg != RT_in)) && (MEM_WB_dest_reg == RT_in)) begin
-			ALU_port2_mux_sel = 2'b10;
+		if (MEM_WB_RegWrite && (MEM_WB_dest_reg != 0) && !(EX_MEM_RegWrite && (EX_MEM_dest_reg != 0) && (EX_MEM_dest_reg == RT_in)) && (MEM_WB_dest_reg == RT_in)) begin
+			ALU_port2_mux_sel = 2'b10;																												//!=
 		end
 		
 	//////////////////////////////////////////////////////////////////////////////////
