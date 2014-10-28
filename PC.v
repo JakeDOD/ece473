@@ -7,12 +7,12 @@ module PC(
 	output reg[31:0] pc_out);
 	
 	initial begin
-		pc_out = 32'h00000000 - 4;
+		pc_out = 32'h00000000;
 	end
 	
 	always @(posedge clock) begin
 		if (reset == 1'b1) begin
-			pc_out <= 32'h00000000 - 4;
+			pc_out <= 32'h00000000;
 		end else begin
 			pc_out <= pc_in;
 		end
