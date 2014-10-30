@@ -2,7 +2,7 @@
 
 module BlinkinLights(
 	input wire clock,
-	output reg[27:0] leds);
+	output reg[26:0] leds);
 	
 	initial begin
 		leds = 1;

@@ -33,8 +33,8 @@ applicable agreement for further details.
 	(port
 		(pt 160 32)
 		(output)
-		(text "leds[27..0]" (rect 0 0 40 12)(font "Arial" ))
-		(text "leds[27..0]" (rect 99 27 139 39)(font "Arial" ))
+		(text "leds[26..0]" (rect 0 0 40 12)(font "Arial" ))
+		(text "leds[26..0]" (rect 99 27 139 39)(font "Arial" ))
 		(line (pt 160 32)(pt 144 32)(line_width 3))
 	)
 	(drawing
