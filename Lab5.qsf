@@ -483,6 +483,9 @@ set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "C:/Users/jsimo_000/
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name VERILOG_FILE BlinkinLights.v
 set_global_assignment -name VERILOG_FILE board_display.v
 set_global_assignment -name VERILOG_FILE signExtend.v
 set_global_assignment -name VERILOG_FILE leftShift.v
@@ -507,8 +510,6 @@ set_global_assignment -name VERILOG_FILE PC.v
 set_global_assignment -name VERILOG_FILE add.v
 set_global_assignment -name VERILOG_FILE mux2_5.v
 set_global_assignment -name VERILOG_FILE register_5.v
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name QIP_FILE lpm_mux0.qip
 set_global_assignment -name VERILOG_FILE forward_unit.v
 set_global_assignment -name VERILOG_FILE mux2_32.v
@@ -518,4 +519,5 @@ set_global_assignment -name VERILOG_FILE IF_ID.v
 set_global_assignment -name VERILOG_FILE ID_EX.v
 set_global_assignment -name VERILOG_FILE EX_MEM.v
 set_global_assignment -name VERILOG_FILE MEM_WB.v
+set_global_assignment -name VERILOG_FILE ALU.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

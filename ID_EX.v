@@ -6,13 +6,14 @@ module ID_EX(
 	input wire reset,
 	
 	// Control signal inputs
+	input wire[1:0] Jump_in,
 	input wire MemtoReg_in,
 	input wire RegWrite_in,
 	input wire MemWrite_in,
 	input wire MemRead_in,
 	input wire Branch_in,
 	input wire ALUSrc_in,
-	input wire[1:0] ALUOp_in,
+	input wire[31:0] instr_in,
 	input wire RegDst_in,
 	
 	input wire[31:0] pc_plus_4_in,
@@ -26,13 +27,14 @@ module ID_EX(
 	input wire[4:0]  RS_in,
 	
 	// Control signal outputs
+	output reg[1:0] Jump_out,
 	output reg MemtoReg_out,
 	output reg RegWrite_out,
 	output reg MemWrite_out,
 	output reg MemRead_out,
 	output reg Branch_out,
 	output reg ALUSrc_out,
-	output reg[1:0] ALUOp_out,
+	output reg[31:0] instr_out,
 	output reg RegDst_out,
 	
 	output reg[31:0] pc_plus_4_out,
@@ -48,13 +50,13 @@ module ID_EX(
 	// Initialize all the outputs to 0
 	initial begin
 		RegDst_out = 0;
-		ALUOp_out = 2'b00;
 		ALUSrc_out = 0;
 		Branch_out= 0;
 		MemRead_out = 0;
 		MemWrite_out = 0;
 		RegWrite_out = 0;
 		MemtoReg_out = 0;
+		Jump_out = 2'b00;
 		
 		pc_plus_4_out = 32'h00000000;
 		
@@ -69,13 +71,14 @@ module ID_EX(
 	always @(posedge clock) begin
 		if (reset == 1'b1) begin
 			RegDst_out <= 0;
-			ALUOp_out <= 2'b00;
+			instr_out <= 6'b000000;
 			ALUSrc_out <= 0;
 			Branch_out <= 0;
 			MemRead_out <= 0;
 			MemWrite_out <= 0;
 			RegWrite_out <= 0;
 			MemtoReg_out <= 0;
+			Jump_out <= 2'b00;
 			
 			pc_plus_4_out = 32'h00000000;
 			
@@ -87,13 +90,14 @@ module ID_EX(
 			RS_out <= 5'b00000;
 		end else begin
 			RegDst_out <= RegDst_in;
-			ALUOp_out  <= ALUOp_in;
+			instr_out  <= instr_in;
 			ALUSrc_out <= ALUSrc_in;
 			Branch_out <= Branch_in;
 			MemRead_out <= MemRead_in;
 			MemWrite_out <= MemWrite_in;
 			RegWrite_out <= RegWrite_in;
 			MemtoReg_out <= MemtoReg_in;
+			Jump_out <= Jump_in;
 			
 			pc_plus_4_out = pc_plus_4_in;
 			

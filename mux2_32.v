@@ -6,6 +6,6 @@ module mux2_32(sel,a,b,o);
 	input wire [31:0] a,b;
 	output [31:0] o;
 	
-	assign o = sel ? a : b;
+	assign o = sel ? b : a;
 	
 endmodule

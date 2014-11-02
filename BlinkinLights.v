@@ -8,11 +8,11 @@ module BlinkinLights(
 		leds = 1;
 	end
 	
-	always @(clock) begin
+	always @(posedge clock) begin
 		if (leds == 134217728) begin
-			leds = 0;
+			leds <= 0;
 		end else begin
-			leds = leds + 1;
+			leds <= leds + 1;
 		end
 	end
 	
