@@ -511,7 +511,6 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name QIP_FILE lpm_mux0.qip
 set_global_assignment -name VERILOG_FILE forward_unit.v
-set_global_assignment -name VERILOG_FILE mux2_8.v
 set_global_assignment -name VERILOG_FILE mux2_32.v
 set_global_assignment -name VERILOG_FILE pc_add.v
 set_global_assignment -name VERILOG_FILE control.v

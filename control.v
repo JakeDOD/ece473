@@ -12,11 +12,16 @@ module control(
 	output reg[1:0] ALUOp,
 	output reg RegDst);
 	
-	always @* begin
-		if (instruction[5:0] == 6'b100000) begin
+	always @* begin		
+		if (instruction[31:26] == 6'b000000) begin
+			RegDst = 1; 
+			ALUOp = 2'b10;
+			ALUSrc = 0;
+			Branch = 0;
+			MemRead = 0;
+			MemWrite = 0;
 			RegWrite = 1;
 			MemtoReg = 0;
-			RegDst = 0;
 		end else begin
 			RegWrite = 0;
 		end

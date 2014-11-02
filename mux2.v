@@ -5,6 +5,6 @@ module mux2(sel,a,b,o);
 	input sel,a,b;
 	output o;
 	
-	assign o = sel ? a : b;
+	assign o = sel ? b : a;
 	
 endmodule
