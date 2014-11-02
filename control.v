@@ -14,7 +14,7 @@ module control(
 	
 	always @* begin		
 		if (instruction[31:26] == 6'b000000) begin
-			RegDst = 1; 
+			RegDst = 0; 
 			ALUOp = 2'b10;
 			ALUSrc = 0;
 			Branch = 0;
