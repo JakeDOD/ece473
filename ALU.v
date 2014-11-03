@@ -22,31 +22,61 @@ module ALU(
 	always @(*) begin
 		case(funct)
 			// Add
-			6'b100000: out = a + b;
+			6'b100000: begin 
+				out = a + b;
+			end
 			// Addu
-			6'b100001: out = a + b;
+			6'b100001: begin
+				out = a + b;
+			end
 			// Sub
-			6'b100010: out = a - b;
+			6'b100010: begin 
+				out = a - b;
+			end
 			// subu
-			6'b100011: out = a - b;
+			6'b100011: begin
+				out = a - b;
+			end
 			// And
-			6'b100100: out = a & b;
+			6'b100100: begin
+				out = a & b;
+			end
 			// OR
-			6'b100101: out = a | b;
+			6'b100101: begin
+				out = a | b;
+			end
 			// NOR
-			6'b100111: out = ~(a | b);
+			6'b100111: begin
+				out = ~(a | b);
+			end
 			// slt
-			6'b101010: out = {{31{1'b0}}, slt};
+			6'b101010: begin
+				out = {{31{1'b0}}, slt};
+			end
 			// sll
-			6'b000000: out = a <<< shamt;
+			6'b000000: begin
+				if (instr[15:11] != 5'h0)begin 
+					out = a <<< shamt;
+				end
+			end
 			// srl
-			6'b000010: out = a >>> shamt;
+			6'b000010: begin
+				out = a >>> shamt;
+			end
 			// sra
-			6'b000011: out = a >> shamt;
+			6'b000011: begin
+				out = a >> shamt;
+			end
 			// jr
-			6'b001000: out = 0;
+			6'b001000: begin
+				out = 0;
+			end
 			// nop
-			6'b000000: out = 32'b0;
+			6'b000000: begin
+				if (instr[31:0] == 32'h0) begin
+					out = 32'b0;
+				end
+			end
 		endcase
 	end
 	

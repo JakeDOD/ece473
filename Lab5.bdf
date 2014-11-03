@@ -3282,12 +3282,6 @@ applicable agreement for further details.
 	(pt -1136 -192)
 )
 (connector
-	(text "LEDR[17..0],LEDG[8..0]" (rect -874 -208 -723 -193)(font "Arial" ))
-	(pt -816 -192)
-	(pt -920 -192)
-	(bus)
-)
-(connector
 	(pt 96 496)
 	(pt 472 496)
 	(bus)
@@ -3526,6 +3520,12 @@ applicable agreement for further details.
 	(pt -2824 768)
 	(bus)
 )
+(connector
+	(text "<<__$DEF_ALIAS252>>" (rect -874 -208 -718 -193)(font "Arial" )(invisible))
+	(pt -816 -192)
+	(pt -920 -192)
+	(bus)
+)
 (junction (pt 1464 -224))
 (junction (pt -752 832))
 (junction (pt -752 904))
@@ -3537,3 +3537,4 @@ applicable agreement for further details.
 (junction (pt 200 712))
 (junction (pt -752 928))
 (junction (pt 144 992))
+(text "LEDR[17..0],LEDG[8..0]" (rect -896 -144 -731 -128)(font "Arial" (font_size 8)))
