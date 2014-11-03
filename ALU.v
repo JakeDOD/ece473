@@ -7,9 +7,9 @@ module ALU(
 	output reg[31:0] out);
 	
 	wire[5:0] funct;
-	wire[4:0] shamt;
+	integer shamt = 0;
 	assign funct = instr[5:0];
-	assign shamt = instr[10:6];
+//	assign shamt = instr[10:6];
 	
 	// Stuff to take care of signedness
 	wire [31:0] sub_ab;
@@ -20,64 +20,39 @@ module ALU(
 	assign slt = oflow_sub ? ~(a[31]) : a[31];
 	
 	always @(*) begin
-		case(funct)
-			// Add
-			6'b100000: begin 
-				out = a + b;
-			end
-			// Addu
-			6'b100001: begin
-				out = a + b;
-			end
-			// Sub
-			6'b100010: begin 
-				out = a - b;
-			end
-			// subu
-			6'b100011: begin
-				out = a - b;
-			end
-			// And
-			6'b100100: begin
-				out = a & b;
-			end
-			// OR
-			6'b100101: begin
-				out = a | b;
-			end
-			// NOR
-			6'b100111: begin
-				out = ~(a | b);
-			end
-			// slt
-			6'b101010: begin
-				out = {{31{1'b0}}, slt};
-			end
-			// sll
-			6'b000000: begin
-				if (instr[15:11] != 5'h0)begin 
-					out = a <<< shamt;
-				end
-			end
-			// srl
-			6'b000010: begin
-				out = a >>> shamt;
-			end
-			// sra
-			6'b000011: begin
-				out = a >> shamt;
-			end
-			// jr
-			6'b001000: begin
-				out = 0;
-			end
-			// nop
-			6'b000000: begin
-				if (instr[31:0] == 32'h0) begin
-					out = 32'b0;
-				end
-			end
-		endcase
+		shamt = instr[10:6];
+		if (instr[15:11] != 5'h0) begin
+			case(funct)
+				// Add
+				6'b100000: out = a + b;
+				// Addu
+				6'b100001: out = a + b;
+				// Sub
+				6'b100010: out = a - b;
+				// subu
+				6'b100011: out = a - b;
+				// And
+				6'b100100: out = a & b;
+				// OR
+				6'b100101: out = a | b;
+				// NOR
+				6'b100111: out = ~(a | b);
+				// slt
+				6'b101010: out = {{31{1'b0}}, slt};
+				// sll	if (instr[15:11] != 5'h0)begin out = a << shamt;	end
+				6'b000000: out = b << shamt;
+				// srl
+				6'b000010: out = b >> shamt;
+				// sra
+				6'b000011: out = b >>> shamt;
+				// jr
+				6'b001000: out = 0;
+				// nop	if (instr[31:0] == 32'h0) begin out = 32'b0; end
+//				6'b000000: out = 32'b0;
+			endcase
+		end else begin
+			out = 32'b0;
+		end
 	end
 	
 endmodule
