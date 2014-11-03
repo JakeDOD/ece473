@@ -1,4 +1,4 @@
-// file mux2.v
+
 
 module mux2_5(sel,a,b,o);
 
