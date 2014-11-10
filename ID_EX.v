@@ -6,6 +6,7 @@ module ID_EX(
 	input wire reset,
 	
 	// Control signal inputs
+	input wire[31:0] Jump_addr_in,
 	input wire[1:0] Jump_in,
 	input wire MemtoReg_in,
 	input wire RegWrite_in,
@@ -27,6 +28,7 @@ module ID_EX(
 	input wire[4:0]  RS_in,
 	
 	// Control signal outputs
+	output reg[31:0] Jump_addr_out,
 	output reg[1:0] Jump_out,
 	output reg MemtoReg_out,
 	output reg RegWrite_out,

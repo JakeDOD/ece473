@@ -89,15 +89,15 @@ applicable agreement for further details.
 	(port
 		(pt 320 64)
 		(output)
-		(text "RAM_read_data_out[31..0]" (rect 0 0 112 12)(font "Arial" ))
-		(text "RAM_read_data_out[31..0]" (rect 187 59 299 71)(font "Arial" ))
+		(text "ALU_result_out[31..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "ALU_result_out[31..0]" (rect 210 59 299 71)(font "Arial" ))
 		(line (pt 320 64)(pt 304 64)(line_width 3))
 	)
 	(port
 		(pt 320 80)
 		(output)
-		(text "ALU_result_out[31..0]" (rect 0 0 89 12)(font "Arial" ))
-		(text "ALU_result_out[31..0]" (rect 210 75 299 87)(font "Arial" ))
+		(text "RAM_read_data_out[31..0]" (rect 0 0 112 12)(font "Arial" ))
+		(text "RAM_read_data_out[31..0]" (rect 187 75 299 87)(font "Arial" ))
 		(line (pt 320 80)(pt 304 80)(line_width 3))
 	)
 	(port

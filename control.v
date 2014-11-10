@@ -30,6 +30,16 @@ module control(
 				Jump = 2'b01;
 				RegWrite = 0;
 			end
+		// If j
+		end else if (instruction[5:0] == 6'b000010) begin
+			RegDst = 0;
+			ALUSrc = 0;
+			Branch = 0;
+			MemRead = 0;
+			MemWrite = 0;
+			RegWrite = 0;
+			MemtoReg = 0;
+			Jump = 2'b10;
 		end else begin
 			RegWrite = 0;
 		end

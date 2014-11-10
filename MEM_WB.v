@@ -19,8 +19,8 @@ module MEM_WB(
 	output reg RegWrite_out,
 	
 	// Operand outputs
-	output reg[31:0] RAM_read_data_out,
 	output reg[31:0] ALU_result_out,
+	output reg[31:0] RAM_read_data_out,
 	output reg[4:0]  Dst_Reg_out);
 	
 	// Initialize all the outputs to 0
