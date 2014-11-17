@@ -20,9 +20,9 @@ applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 336 384)
+	(rect 16 16 336 416)
 	(text "ID_EX" (rect 5 0 33 12)(font "Arial" ))
-	(text "inst" (rect 8 352 20 364)(font "Arial" ))
+	(text "inst" (rect 8 384 20 396)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -89,9 +89,9 @@ applicable agreement for further details.
 	(port
 		(pt 0 176)
 		(input)
-		(text "ALUSrc_in" (rect 0 0 47 12)(font "Arial" ))
-		(text "ALUSrc_in" (rect 21 171 68 183)(font "Arial" ))
-		(line (pt 0 176)(pt 16 176)(line_width 1))
+		(text "ALUSrc_in[1..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "ALUSrc_in[1..0]" (rect 21 171 87 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
 	)
 	(port
 		(pt 0 192)
@@ -164,6 +164,13 @@ applicable agreement for further details.
 		(line (pt 0 336)(pt 16 336)(line_width 3))
 	)
 	(port
+		(pt 0 352)
+		(input)
+		(text "zero_ext_imm_in[31..0]" (rect 0 0 93 12)(font "Arial" ))
+		(text "zero_ext_imm_in[31..0]" (rect 21 347 114 359)(font "Arial" ))
+		(line (pt 0 352)(pt 16 352)(line_width 3))
+	)
+	(port
 		(pt 320 32)
 		(output)
 		(text "Jump_addr_out[31..0]" (rect 0 0 87 12)(font "Arial" ))
@@ -215,9 +222,9 @@ applicable agreement for further details.
 	(port
 		(pt 320 144)
 		(output)
-		(text "ALUSrc_out" (rect 0 0 53 12)(font "Arial" ))
-		(text "ALUSrc_out" (rect 246 139 299 151)(font "Arial" ))
-		(line (pt 320 144)(pt 304 144)(line_width 1))
+		(text "ALUSrc_out[1..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "ALUSrc_out[1..0]" (rect 228 139 299 151)(font "Arial" ))
+		(line (pt 320 144)(pt 304 144)(line_width 3))
 	)
 	(port
 		(pt 320 160)
@@ -257,8 +264,8 @@ applicable agreement for further details.
 	(port
 		(pt 320 240)
 		(output)
-		(text "Immediate_out[31..0]" (rect 0 0 82 12)(font "Arial" ))
-		(text "Immediate_out[31..0]" (rect 217 235 299 247)(font "Arial" ))
+		(text "sign_ext_imm_out[31..0]" (rect 0 0 97 12)(font "Arial" ))
+		(text "sign_ext_imm_out[31..0]" (rect 202 235 299 247)(font "Arial" ))
 		(line (pt 320 240)(pt 304 240)(line_width 3))
 	)
 	(port
@@ -289,7 +296,14 @@ applicable agreement for further details.
 		(text "shamt_out[4..0]" (rect 236 299 299 311)(font "Arial" ))
 		(line (pt 320 304)(pt 304 304)(line_width 3))
 	)
+	(port
+		(pt 320 320)
+		(output)
+		(text "zero_ext_imm_out[31..0]" (rect 0 0 99 12)(font "Arial" ))
+		(text "zero_ext_imm_out[31..0]" (rect 200 315 299 327)(font "Arial" ))
+		(line (pt 320 320)(pt 304 320)(line_width 3))
+	)
 	(drawing
-		(rectangle (rect 16 16 304 352)(line_width 1))
+		(rectangle (rect 16 16 304 384)(line_width 1))
 	)
 )

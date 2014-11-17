@@ -13,7 +13,7 @@ module ID_EX(
 	input wire MemWrite_in,
 	input wire MemRead_in,
 	input wire Branch_in,
-	input wire ALUSrc_in,
+	input wire[1:0] ALUSrc_in,
 	input wire[3:0] ALU_ctrl_in,
 	input wire RegDst_in,
 	
@@ -27,6 +27,7 @@ module ID_EX(
 	input wire[4:0]  RD_in,
 	input wire[4:0]  RS_in,
 	input wire[4:0]  shamt_in,
+	input wire[31:0] zero_ext_imm_in,
 	
 	// Control signal outputs
 	output reg[31:0] Jump_addr_out,
@@ -36,7 +37,7 @@ module ID_EX(
 	output reg MemWrite_out,
 	output reg MemRead_out,
 	output reg Branch_out,
-	output reg ALUSrc_out,
+	output reg[1:0] ALUSrc_out,
 	output reg[3:0] ALU_ctrl_out,
 	output reg RegDst_out,
 	
@@ -45,11 +46,12 @@ module ID_EX(
 	// Operand outputs
 	output reg[31:0] ALUOperand1_out,
 	output reg[31:0] ALUOperand2_out,
-	output reg[31:0] Immediate_out,
+	output reg[31:0] sign_ext_imm_out,
 	output reg[4:0]  RT_out,
 	output reg[4:0]  RD_out,
 	output reg[4:0]  RS_out,
-	output reg[4:0]  shamt_out);
+	output reg[4:0]  shamt_out,
+	output reg[31:0] zero_ext_imm_out);
 	
 	// Initialize all the outputs to 0
 	initial begin
@@ -66,11 +68,12 @@ module ID_EX(
 		
 		ALUOperand1_out = 32'h00000000;
 		ALUOperand2_out = 32'h00000000;
-		Immediate_out =   32'h00000000;
+		sign_ext_imm_out =   32'h00000000;
 		RT_out = 5'b00000;
 		RD_out = 5'b00000;
 		RS_out = 5'b00000;
 		shamt_out = 5'b00000;
+		zero_ext_imm_out = 32'h00000000;
 	end
 	
 	always @(posedge clock) begin
@@ -89,11 +92,12 @@ module ID_EX(
 			
 			ALUOperand1_out <= 32'h00000000;
 			ALUOperand2_out <= 32'h00000000;
-			Immediate_out   <= 32'h00000000;
+			sign_ext_imm_out<= 32'h00000000;
 			RT_out <= 5'b00000;
 			RD_out <= 5'b00000;
 			RS_out <= 5'b00000;
 			shamt_out <= 5'b00000;
+			zero_ext_imm_out <= 32'h00000000;
 		end else begin
 			RegDst_out <= RegDst_in;
 			ALU_ctrl_out  <= ALU_ctrl_in;
@@ -109,11 +113,12 @@ module ID_EX(
 			
 			ALUOperand1_out <= Read_data1_in;
 			ALUOperand2_out <= Read_data2_in;
-			Immediate_out <=   Sign_extended_imm_in;
+			sign_ext_imm_out <=   Sign_extended_imm_in;
 			RT_out <= RT_in;
 			RD_out <= RD_in;
 			RS_out <= RS_in;
 			shamt_out <= shamt_in;
+			zero_ext_imm_out <= zero_ext_imm_in;
 		end
 	end
 	

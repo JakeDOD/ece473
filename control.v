@@ -9,7 +9,7 @@ module control(
 	output reg MemWrite,
 	output reg MemRead,
 	output reg Branch,
-	output reg ALUSrc,
+	output reg[1:0] ALUSrc,
 	output reg[3:0] ALU_ctrl,
 	output reg RegDst,
 	output wire[31:0] zero_32,		// goes to jal mux
@@ -19,19 +19,18 @@ module control(
 	assign r31 = 5'b11111;
 	
 	always @* begin
-		
 		case (instruction[31:26])
 //		if (instruction[31:26] == 6'b000000) begin
 			6'b000000:		// If R-type instruction
 				begin
-					RegDst = 0;
-					ALUSrc = 0;
-					Branch = 0;
-					MemRead = 0;
+					RegDst   = 0;
+					ALUSrc   = 0;
+					Branch   = 0;
+					MemRead  = 0;
 					MemWrite = 0;
 					RegWrite = 1;
 					MemtoReg = 0;
-					Jump = 2'b00;							// default Jump state
+					Jump     = 2'b00;							// default Jump state
 					
 					// ALU_ctrl
 					case(instruction[5:0])				// check the funct code
@@ -64,14 +63,15 @@ module control(
 								ALU_ctrl = 4'b0101;
 							end
 						6'b101010:  						// slt
-							begin								// *
+							begin	
 								ALU_ctrl = 4'b0110;
 							end
 						6'b000000:  						// sll and nop
 							begin
+								// if sll
 								if (instruction[15:11] != 5'b00000) begin		// if write register not 0 (never write to $0 anyway)
 									ALU_ctrl = 4'b0111;
-								end else begin
+								end else begin				// nop
 									ALU_ctrl = 4'b0000;
 								end
 							end
@@ -91,7 +91,94 @@ module control(
 							end
 					endcase
 				end
-		
+			6'b001100:		// andi
+				begin
+					RegDst   = 1;			// destination is Rt
+					ALUSrc[1:0]= 2'b01;		// ZeroExtImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0011;
+				end
+			6'b001101:		// ori
+				begin
+					RegDst   = 1;			// destination is Rt
+					ALUSrc[1:0]= 2'b01;		// ZeroExtImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0100;
+				end
+			6'b001010:		// slti
+				begin
+					RegDst   = 1;			// destination is Rt
+					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0110;
+				end
+			6'b001000:		// addi
+				begin
+					RegDst   = 1;			// destination is Rt
+					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0001;
+				end
+			6'b001001:		// addiu
+				begin
+					RegDst   = 1;			// destination is Rt
+					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0001;
+				end
+			6'b000100:		// beq
+				begin
+				
+				end
+			6'b000101:		// bne
+				begin
+				
+				end
+			6'b000111:		// bgtz
+				begin
+				
+				end
+			6'b000001:		// bgez
+				begin
+				
+				end
+			6'b100011:		// lw
+				begin
+				
+				end
+			6'b101011:		// sw
+				begin
+				
+				end
+			6'b001111:		// lui
+				begin
+				
+				end
 //		end else if (instruction[31:26] == 6'b000010) begin
 			6'b000010:		// If j
 				begin

@@ -10,13 +10,14 @@ module ALU(
 	// Stuff to take care of signedness
 	wire [31:0] sub_ab;
 	wire oflow_sub;
-	wire slt_signed, slt_unsigned;
+	wire slt_signed,slt_unsigned;
 	assign sub_ab = a - b;
 	assign oflow_sub = (a[31] != b[31] && sub_ab[31] != a[31]) ? 1 : 0;
-	assign slt_signed = oflow_sub ? ~(a[31]) : sub_ab[31];
-	assign slt_unsigned = a < b ? 1 : 0;
+	assign slt = oflow_sub ? ~(a[31]) : sub_ab[31];
 	
 	always @(*) begin
+//		oflow_sub = (a[31] != b[31] && sub_ab[31] != a[31]) ? 1 : 0;
+//		slt = oflow_sub ? ~(a[31]) : sub_ab[31];
 		case(ALU_ctrl)
 			// Add
 			4'b0001: out = a + b;
@@ -32,10 +33,8 @@ module ALU(
 			4'b0100: out = a | b;
 			// NOR
 			4'b0101: out = ~(a | b);
-			// slt signed
+			// slt
 			4'b0110: out = {{31{1'b0}}, slt_signed};
-			// slt unsigned
-			4'b1010: out = {{31{1'b0}}, slt_unsigned};
 			// sll
 			4'b0111: out = b << shamt;
 			// srl

@@ -75,9 +75,9 @@ applicable agreement for further details.
 	(port
 		(pt 224 128)
 		(output)
-		(text "ALUSrc" (rect 0 0 35 12)(font "Arial" ))
-		(text "ALUSrc" (rect 168 123 203 135)(font "Arial" ))
-		(line (pt 224 128)(pt 208 128)(line_width 1))
+		(text "ALUSrc[1..0]" (rect 0 0 54 12)(font "Arial" ))
+		(text "ALUSrc[1..0]" (rect 149 123 203 135)(font "Arial" ))
+		(line (pt 224 128)(pt 208 128)(line_width 3))
 	)
 	(port
 		(pt 224 144)
