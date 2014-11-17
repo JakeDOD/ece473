@@ -14,7 +14,7 @@ module ID_EX(
 	input wire MemRead_in,
 	input wire Branch_in,
 	input wire ALUSrc_in,
-	input wire[31:0] instr_in,
+	input wire[3:0] ALU_ctrl_in,
 	input wire RegDst_in,
 	
 	input wire[31:0] pc_plus_4_in,
@@ -26,6 +26,7 @@ module ID_EX(
 	input wire[4:0]  RT_in,
 	input wire[4:0]  RD_in,
 	input wire[4:0]  RS_in,
+	input wire[4:0]  shamt_in,
 	
 	// Control signal outputs
 	output reg[31:0] Jump_addr_out,
@@ -36,7 +37,7 @@ module ID_EX(
 	output reg MemRead_out,
 	output reg Branch_out,
 	output reg ALUSrc_out,
-	output reg[31:0] instr_out,
+	output reg[3:0] ALU_ctrl_out,
 	output reg RegDst_out,
 	
 	output reg[31:0] pc_plus_4_out,
@@ -47,7 +48,8 @@ module ID_EX(
 	output reg[31:0] Immediate_out,
 	output reg[4:0]  RT_out,
 	output reg[4:0]  RD_out,
-	output reg[4:0]  RS_out);
+	output reg[4:0]  RS_out,
+	output reg[4:0]  shamt_out);
 	
 	// Initialize all the outputs to 0
 	initial begin
@@ -68,12 +70,13 @@ module ID_EX(
 		RT_out = 5'b00000;
 		RD_out = 5'b00000;
 		RS_out = 5'b00000;
+		shamt_out = 5'b00000;
 	end
 	
 	always @(posedge clock) begin
 		if (reset == 1'b1) begin
 			RegDst_out <= 0;
-			instr_out <= 6'b000000;
+			ALU_ctrl_out <= 6'b000000;
 			ALUSrc_out <= 0;
 			Branch_out <= 0;
 			MemRead_out <= 0;
@@ -90,9 +93,10 @@ module ID_EX(
 			RT_out <= 5'b00000;
 			RD_out <= 5'b00000;
 			RS_out <= 5'b00000;
+			shamt_out <= 5'b00000;
 		end else begin
 			RegDst_out <= RegDst_in;
-			instr_out  <= instr_in;
+			ALU_ctrl_out  <= ALU_ctrl_in;
 			ALUSrc_out <= ALUSrc_in;
 			Branch_out <= Branch_in;
 			MemRead_out <= MemRead_in;
@@ -109,6 +113,7 @@ module ID_EX(
 			RT_out <= RT_in;
 			RD_out <= RD_in;
 			RS_out <= RS_in;
+			shamt_out <= shamt_in;
 		end
 	end
 	
