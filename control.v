@@ -3,7 +3,7 @@
 module control(
 	input wire[31:0] instruction,
 	
-	output reg[1:0] Jump,
+	output reg[1:0] Jump,			// 00 - no jump; 01 - jr; 10 - j and jal (address calculated the same way)
 	output reg MemtoReg,
 	output reg RegWrite,
 	output reg MemWrite,
@@ -11,13 +11,18 @@ module control(
 	output reg Branch,
 	output reg ALUSrc,
 	output reg[3:0] ALU_ctrl,
-	output reg RegDst);
+	output reg RegDst,
+	output wire[31:0] zero_32,		// goes to jal mux
+	output wire[4:0]  r31);			// goes to jal mux
+	
+	assign zero_32 = 0;
+	assign r31 = 5'b11111;
 	
 	always @* begin
-		// If R-type instruction
+		
 		case (instruction[31:26])
 //		if (instruction[31:26] == 6'b000000) begin
-			6'b000000:
+			6'b000000:		// If R-type instruction
 				begin
 					RegDst = 0;
 					ALUSrc = 0;
@@ -26,14 +31,10 @@ module control(
 					MemWrite = 0;
 					RegWrite = 1;
 					MemtoReg = 0;
-					Jump = 2'b00;
-					// If jr
-					if (instruction[5:0] == 6'b001000) begin
-						Jump = 2'b01;
-						RegWrite = 0;
-					end
-					// check the funct code
-					case(instruction[5:0])
+					Jump = 2'b00;							// default Jump state
+					
+					// ALU_ctrl
+					case(instruction[5:0])				// check the funct code
 						6'b100000: 							// add
 							begin 
 								ALU_ctrl = 4'b0001;
@@ -85,12 +86,14 @@ module control(
 						6'b001000:  						// jr
 							begin
 								ALU_ctrl = 4'b0000;
+								Jump = 2'b01;
+								RegWrite = 0;
 							end
 					endcase
 				end
-		// If j
+		
 //		end else if (instruction[31:26] == 6'b000010) begin
-			6'b000010:
+			6'b000010:		// If j
 				begin
 					RegDst = 0;
 					ALUSrc = 0;
@@ -100,6 +103,19 @@ module control(
 					RegWrite = 0;
 					MemtoReg = 0;
 					Jump = 2'b10;
+					ALU_ctrl = 4'b0000;					// ALU doesn't need to do anything for jump
+				end
+			6'b000011:		// If jal
+				begin
+					RegDst = 0;
+					ALUSrc = 0;
+					Branch = 0;
+					MemRead = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump = 2'b11;
+					ALU_ctrl = 4'b0001;					// faking an add instruction to write pc+4 to $31
 				end
 //		end else begin
 			default:
