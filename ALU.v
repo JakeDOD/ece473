@@ -4,7 +4,7 @@ module ALU(
 	input [3:0] ALU_ctrl,
 	input [31:0] a,b,
 	input [4:0] shamt,
-	output zero,
+	output reg zero,
 	output reg[31:0] out);
 	
 	// Stuff to take care of signedness
@@ -13,9 +13,14 @@ module ALU(
 	wire slt_signed,slt_unsigned;
 	assign sub_ab = a - b;
 	assign oflow_sub = (a[31] != b[31] && sub_ab[31] != a[31]) ? 1 : 0;
-	assign slt = oflow_sub ? ~(a[31]) : sub_ab[31];
+	assign slt_signed = oflow_sub ? ~(a[31]) : sub_ab[31];
+	
+//	integer sub_ab = 0;
+//	integer oflow_sub = 0;
+//	integer slt = 0;
 	
 	always @(*) begin
+//		sub_ab = a - b;
 //		oflow_sub = (a[31] != b[31] && sub_ab[31] != a[31]) ? 1 : 0;
 //		slt = oflow_sub ? ~(a[31]) : sub_ab[31];
 		case(ALU_ctrl)
