@@ -3,6 +3,7 @@
 module control(
 	input wire[31:0] instruction,
 	
+	output reg R_Ibar_type,
 	output reg[1:0] Jump,			// 00 - no jump; 01 - jr; 10 - j and jal (address calculated the same way)
 	output reg MemtoReg,
 	output reg RegWrite,
@@ -20,9 +21,9 @@ module control(
 	
 	always @* begin
 		case (instruction[31:26])
-//		if (instruction[31:26] == 6'b000000) begin
 			6'b000000:		// If R-type instruction
 				begin
+					R_Ibar_type = 1;
 					RegDst   = 0;
 					ALUSrc   = 0;
 					Branch   = 0;
@@ -95,8 +96,10 @@ module control(
 							end
 					endcase
 				end
+			////////////////////////////////////////////////////////
 			6'b001100:		// andi
 				begin
+					R_Ibar_type = 0;
 					RegDst   = 1;			// destination is Rt
 					ALUSrc= 2'b01;		// ZeroExtImm
 					Branch   = 0;
@@ -109,6 +112,7 @@ module control(
 				end
 			6'b001101:		// ori
 				begin
+					R_Ibar_type = 0;
 					RegDst   = 1;			// destination is Rt
 					ALUSrc= 2'b01;		// ZeroExtImm
 					Branch   = 0;
@@ -121,6 +125,7 @@ module control(
 				end
 			6'b001010:		// slti
 				begin
+					R_Ibar_type = 0;
 					RegDst   = 1;			// destination is Rt
 					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
@@ -133,6 +138,7 @@ module control(
 				end
 			6'b001000:		// addi
 				begin
+					R_Ibar_type = 0;
 					RegDst   = 1;			// destination is Rt
 					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
@@ -145,6 +151,7 @@ module control(
 				end
 			6'b001001:		// addiu
 				begin
+					R_Ibar_type = 0;
 					RegDst   = 1;			// destination is Rt
 					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
@@ -157,33 +164,48 @@ module control(
 				end
 			6'b000100:		// beq
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b000101:		// bne
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b000111:		// bgtz
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b000001:		// bgez
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b100011:		// lw
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b101011:		// sw
 				begin
+					R_Ibar_type = 0;
 				
 				end
 			6'b001111:		// lui
 				begin
-				
+					R_Ibar_type = 0;
+					RegDst   = 1;			// destination is Rt
+					ALUSrc= 2'b11;		// UpperImm
+					Branch   = 0;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0001;
 				end
-//		end else if (instruction[31:26] == 6'b000010) begin
+			/////////////////////////////////////////////////////////
 			6'b000010:		// If j
 				begin
 					RegDst = 0;
@@ -208,12 +230,10 @@ module control(
 					Jump = 2'b11;
 					ALU_ctrl = 4'b0001;					// faking an add instruction to write pc+4 to $31
 				end
-//		end else begin
 			default:
 				begin
 					RegWrite = 0;
 				end
-//		end
 		endcase
 	end	
 	

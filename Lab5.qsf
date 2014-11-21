@@ -529,7 +529,6 @@ set_global_assignment -name VERILOG_FILE MEM_WB.v
 set_global_assignment -name VERILOG_FILE ALU.v
 set_global_assignment -name VERILOG_FILE j_addr.v
 set_global_assignment -name VERILOG_FILE leftShift_16.v
-set_global_assignment -name QIP_FILE altclkctrl0.qip
 set_global_assignment -name QIP_FILE lpm_mux32_4.qip
 set_global_assignment -name QIP_FILE lpm_mux1_2.qip
 set_global_assignment -name QIP_FILE output_files/lpm_mux32_2.qip
