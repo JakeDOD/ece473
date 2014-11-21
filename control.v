@@ -89,12 +89,16 @@ module control(
 								Jump = 2'b01;
 								RegWrite = 0;
 							end
+						default:
+							begin
+								ALU_ctrl = 4'b0000;
+							end
 					endcase
 				end
 			6'b001100:		// andi
 				begin
 					RegDst   = 1;			// destination is Rt
-					ALUSrc[1:0]= 2'b01;		// ZeroExtImm
+					ALUSrc= 2'b01;		// ZeroExtImm
 					Branch   = 0;
 					MemRead  = 0;
 					MemWrite = 0;
@@ -106,7 +110,7 @@ module control(
 			6'b001101:		// ori
 				begin
 					RegDst   = 1;			// destination is Rt
-					ALUSrc[1:0]= 2'b01;		// ZeroExtImm
+					ALUSrc= 2'b01;		// ZeroExtImm
 					Branch   = 0;
 					MemRead  = 0;
 					MemWrite = 0;
@@ -118,7 +122,7 @@ module control(
 			6'b001010:		// slti
 				begin
 					RegDst   = 1;			// destination is Rt
-					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
 					MemRead  = 0;
 					MemWrite = 0;
@@ -130,7 +134,7 @@ module control(
 			6'b001000:		// addi
 				begin
 					RegDst   = 1;			// destination is Rt
-					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
 					MemRead  = 0;
 					MemWrite = 0;
@@ -142,7 +146,7 @@ module control(
 			6'b001001:		// addiu
 				begin
 					RegDst   = 1;			// destination is Rt
-					ALUSrc[1:0]= 2'b10;		// SignExtImm
+					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 0;
 					MemRead  = 0;
 					MemWrite = 0;

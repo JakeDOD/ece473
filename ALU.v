@@ -27,6 +27,7 @@ module ALU(
 //		sub_ab = a - b;
 //		oflow_sub = (a[31] != b[31] && sub_ab[31] != a[31]) ? 1 : 0;
 //		slt = oflow_sub ? ~(a[31]) : sub_ab[31];
+		zero = 0;
 		case(ALU_ctrl)
 			// nop, jr
 			4'b0000: 

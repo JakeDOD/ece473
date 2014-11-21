@@ -4,7 +4,7 @@
 // MODULE: LPM_MUX 
 
 // ============================================================
-// File Name: lpm_mux0.v
+// File Name: lpm_mux1_2.v
 // Megafunction Name(s):
 // 			LPM_MUX
 //
@@ -36,29 +36,29 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module lpm_mux0 (
-	data0x,
-	data1x,
-	data2x,
+module lpm_mux1_2 (
+	data0,
+	data1,
 	sel,
 	result);
 
-	input	[31:0]  data0x;
-	input	[31:0]  data1x;
-	input	[31:0]  data2x;
-	input	[1:0]  sel;
-	output	[31:0]  result;
+	input	  data0;
+	input	  data1;
+	input	  sel;
+	output	  result;
 
-	wire [31:0] sub_wire0;
-	wire [31:0] sub_wire4 = data2x[31:0];
-	wire [31:0] sub_wire3 = data1x[31:0];
-	wire [31:0] result = sub_wire0[31:0];
-	wire [31:0] sub_wire1 = data0x[31:0];
-	wire [95:0] sub_wire2 = {sub_wire4, sub_wire3, sub_wire1};
+	wire [0:0] sub_wire0;
+	wire  sub_wire4 = data1;
+	wire [0:0] sub_wire1 = sub_wire0[0:0];
+	wire  result = sub_wire1;
+	wire  sub_wire2 = data0;
+	wire [1:0] sub_wire3 = {sub_wire4, sub_wire2};
+	wire  sub_wire5 = sel;
+	wire  sub_wire6 = sub_wire5;
 
 	lpm_mux	LPM_MUX_component (
-				.data (sub_wire2),
-				.sel (sel),
+				.data (sub_wire3),
+				.sel (sub_wire6),
 				.result (sub_wire0)
 				// synopsys translate_off
 				,
@@ -68,10 +68,10 @@ module lpm_mux0 (
 				// synopsys translate_on
 				);
 	defparam
-		LPM_MUX_component.lpm_size = 3,
+		LPM_MUX_component.lpm_size = 2,
 		LPM_MUX_component.lpm_type = "LPM_MUX",
-		LPM_MUX_component.lpm_width = 32,
-		LPM_MUX_component.lpm_widths = 2;
+		LPM_MUX_component.lpm_width = 1,
+		LPM_MUX_component.lpm_widths = 1;
 
 
 endmodule
@@ -83,24 +83,22 @@ endmodule
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "0"
 // Retrieval info: PRIVATE: new_diagram STRING "1"
 // Retrieval info: LIBRARY: lpm lpm.lpm_components.all
-// Retrieval info: CONSTANT: LPM_SIZE NUMERIC "3"
+// Retrieval info: CONSTANT: LPM_SIZE NUMERIC "2"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_MUX"
-// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "32"
-// Retrieval info: CONSTANT: LPM_WIDTHS NUMERIC "2"
-// Retrieval info: USED_PORT: data0x 0 0 32 0 INPUT NODEFVAL "data0x[31..0]"
-// Retrieval info: USED_PORT: data1x 0 0 32 0 INPUT NODEFVAL "data1x[31..0]"
-// Retrieval info: USED_PORT: data2x 0 0 32 0 INPUT NODEFVAL "data2x[31..0]"
-// Retrieval info: USED_PORT: result 0 0 32 0 OUTPUT NODEFVAL "result[31..0]"
-// Retrieval info: USED_PORT: sel 0 0 2 0 INPUT NODEFVAL "sel[1..0]"
-// Retrieval info: CONNECT: @data 0 0 32 0 data0x 0 0 32 0
-// Retrieval info: CONNECT: @data 0 0 32 32 data1x 0 0 32 0
-// Retrieval info: CONNECT: @data 0 0 32 64 data2x 0 0 32 0
-// Retrieval info: CONNECT: @sel 0 0 2 0 sel 0 0 2 0
-// Retrieval info: CONNECT: result 0 0 32 0 @result 0 0 32 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0.bsf TRUE FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux0_bb.v FALSE
+// Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "1"
+// Retrieval info: CONSTANT: LPM_WIDTHS NUMERIC "1"
+// Retrieval info: USED_PORT: data0 0 0 0 0 INPUT NODEFVAL "data0"
+// Retrieval info: USED_PORT: data1 0 0 0 0 INPUT NODEFVAL "data1"
+// Retrieval info: USED_PORT: result 0 0 0 0 OUTPUT NODEFVAL "result"
+// Retrieval info: USED_PORT: sel 0 0 0 0 INPUT NODEFVAL "sel"
+// Retrieval info: CONNECT: @data 0 0 1 0 data0 0 0 0 0
+// Retrieval info: CONNECT: @data 0 0 1 1 data1 0 0 0 0
+// Retrieval info: CONNECT: @sel 0 0 1 0 sel 0 0 0 0
+// Retrieval info: CONNECT: result 0 0 0 0 @result 0 0 1 0
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2.bsf TRUE FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL lpm_mux1_2_bb.v FALSE
 // Retrieval info: LIB_FILE: lpm

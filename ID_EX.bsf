@@ -171,6 +171,13 @@ applicable agreement for further details.
 		(line (pt 0 352)(pt 16 352)(line_width 3))
 	)
 	(port
+		(pt 0 368)
+		(input)
+		(text "upper_imm_in[31..0]" (rect 0 0 81 12)(font "Arial" ))
+		(text "upper_imm_in[31..0]" (rect 21 363 102 375)(font "Arial" ))
+		(line (pt 0 368)(pt 16 368)(line_width 3))
+	)
+	(port
 		(pt 320 32)
 		(output)
 		(text "Jump_addr_out[31..0]" (rect 0 0 87 12)(font "Arial" ))
@@ -302,6 +309,13 @@ applicable agreement for further details.
 		(text "zero_ext_imm_out[31..0]" (rect 0 0 99 12)(font "Arial" ))
 		(text "zero_ext_imm_out[31..0]" (rect 200 315 299 327)(font "Arial" ))
 		(line (pt 320 320)(pt 304 320)(line_width 3))
+	)
+	(port
+		(pt 320 336)
+		(output)
+		(text "upper_imm_out[31..0]" (rect 0 0 87 12)(font "Arial" ))
+		(text "upper_imm_out[31..0]" (rect 212 331 299 343)(font "Arial" ))
+		(line (pt 320 336)(pt 304 336)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 304 384)(line_width 1))
