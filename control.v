@@ -2,6 +2,7 @@
 
 module control(
 	input wire[31:0] instruction,
+	input wire clock,
 	
 	output reg R_Ibar_type,
 	output reg[1:0] Jump,			// 00 - no jump; 01 - jr; 10 - j and jal (address calculated the same way)
@@ -19,7 +20,7 @@ module control(
 	assign zero_32 = 0;
 	assign r31 = 5'b11111;
 	
-	always @* begin
+	always @(negedge clock) begin
 		case (instruction[31:26])
 			6'b000000:		// If R-type instruction
 				begin
