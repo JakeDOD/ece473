@@ -6,9 +6,7 @@ module ID_EX(
 	input wire reset,
 	
 	// Control signal inputs
-	input wire[31:0] Jump_addr_in,
 	input wire R_Ibar_type_in,
-	input wire[1:0] Jump_in,
 	input wire MemtoReg_in,
 	input wire RegWrite_in,
 	input wire MemWrite_in,
@@ -33,8 +31,6 @@ module ID_EX(
 	
 	// Control signal outputs
 	output reg R_Ibar_type_out,
-	output reg[31:0] Jump_addr_out,
-	output reg[1:0] Jump_out,
 	output reg MemtoReg_out,
 	output reg RegWrite_out,
 	output reg MemWrite_out,
@@ -66,9 +62,8 @@ module ID_EX(
 		MemWrite_out = 0;
 		RegWrite_out = 0;
 		MemtoReg_out = 0;
-		Jump_out = 2'b00;
-		Jump_addr_out = 0;
 		R_Ibar_type_out = 0;
+		ALU_ctrl_out = 0;
 		
 		pc_plus_4_out = 32'h00000000;
 		
@@ -93,8 +88,7 @@ module ID_EX(
 			MemWrite_out <= 0;
 			RegWrite_out <= 0;
 			MemtoReg_out <= 0;
-			Jump_out <= 2'b00;
-			Jump_addr_out <= 0;
+			R_Ibar_type_out <=0;
 			
 			pc_plus_4_out = 32'h00000000;
 			
@@ -116,8 +110,6 @@ module ID_EX(
 			MemWrite_out <= MemWrite_in;
 			RegWrite_out <= RegWrite_in;
 			MemtoReg_out <= MemtoReg_in;
-			Jump_out <= Jump_in;
-			Jump_addr_out <= Jump_addr_in;
 			R_Ibar_type_out <= R_Ibar_type_in;
 			
 			pc_plus_4_out = pc_plus_4_in;

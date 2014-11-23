@@ -2,7 +2,7 @@
 
 module control(
 	input wire[31:0] instruction,
-	input wire clock,
+//	input wire stall,
 	
 	output reg R_Ibar_type,
 	output reg[1:0] Jump,			// 00 - no jump; 01 - jr; 10 - j and jal (address calculated the same way)
@@ -20,7 +20,7 @@ module control(
 	assign four_32 = 32'd4;
 	assign r31 = 5'b11111;
 	
-	always @(negedge clock) begin
+	always @(*) begin
 		case (instruction[31:26])
 			6'b000000:		// If R-type instruction
 				begin
@@ -166,7 +166,15 @@ module control(
 			6'b000100:		// beq
 				begin
 					R_Ibar_type = 0;
-				
+					RegDst   = 0;
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0000;
 				end
 			6'b000101:		// bne
 				begin

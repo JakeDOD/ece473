@@ -46,7 +46,7 @@ module EX_MEM(
 		Dst_Reg_out = 5'b00000;
 	end
 	
-	always @(posedge clock) begin
+	always @(negedge clock) begin
 		if (reset == 1'b1) begin
 			Branch_out <= 0;
 			MemRead_out <= 0;
