@@ -110,8 +110,8 @@ applicable agreement for further details.
 	(port
 		(pt 224 192)
 		(output)
-		(text "zero_32[31..0]" (rect 0 0 55 12)(font "Arial" ))
-		(text "zero_32[31..0]" (rect 148 187 203 199)(font "Arial" ))
+		(text "four_32[31..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "four_32[31..0]" (rect 148 187 203 199)(font "Arial" ))
 		(line (pt 224 192)(pt 208 192)(line_width 3))
 	)
 	(port

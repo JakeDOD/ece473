@@ -14,10 +14,10 @@ module control(
 	output reg[1:0] ALUSrc,
 	output reg[3:0] ALU_ctrl,
 	output reg RegDst,
-	output wire[31:0] zero_32,		// goes to jal mux
+	output wire[31:0] four_32,		// goes to jal mux
 	output wire[4:0]  r31);			// goes to jal mux
 	
-	assign zero_32 = 0;
+	assign four_32 = 32'd4;
 	assign r31 = 5'b11111;
 	
 	always @(negedge clock) begin

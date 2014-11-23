@@ -7,7 +7,7 @@ module j_addr(
 	output reg[31:0] jump_address);
 	
 	always @(*) begin
-		jump_address = {upper_pc_plus_4[3:0],(offset << 2)};
+		jump_address = {upper_pc_plus_4[3:0],offset[25:0],2'b0};
 	end
 	
 endmodule
