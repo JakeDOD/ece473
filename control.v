@@ -223,12 +223,28 @@ module control(
 			6'b100011:		// lw
 				begin
 					R_Ibar_type = 0;
-				
+					RegDst   = 1;		// Rt
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 1;		// Writing to Rt
+					MemtoReg = 1;		// Writing from memory to register
+					Jump     = 2'b00;	// not jumping
+					ALU_ctrl = 4'b0001;
 				end
 			6'b101011:		// sw
 				begin
 					R_Ibar_type = 0;
-				
+					RegDst   = 0;
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0001;
 				end
 			6'b001111:		// lui
 				begin
