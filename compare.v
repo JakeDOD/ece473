@@ -4,18 +4,15 @@ module compare(
 	 input  [31:0] A,
     input  [31:0] B,
     output EQ,
-    output GZ,
-    output LZ,
-    output GEZ,
-    output LEZ
-    );
+    output NE,
+    output GTZ,
+    output GEZ);
 
     wire   ZeroA = (A == 32'b0);
 
     assign EQ  = ( A == B);
-    assign GZ  = (~A[31] & ~ZeroA);
-    assign LZ  =   A[31];
-    assign GEZ =  ~A[31];
-    assign LEZ = ( A[31] |  ZeroA);
+    assign NE  = ~EQ;
+    assign GTZ = (~A[31] && ~ZeroA);
+    assign GEZ = ~A[31];
 	
 endmodule

@@ -15,7 +15,8 @@ module control(
 	output reg[3:0] ALU_ctrl,
 	output reg RegDst,
 	output wire[31:0] four_32,		// goes to jal mux
-	output wire[4:0]  r31);			// goes to jal mux
+	output wire[4:0]  r31,			// goes to jal mux
+	output reg [1:0]  branch_type);			
 	
 	assign four_32 = 32'd4;
 	assign r31 = 5'b11111;
@@ -175,21 +176,25 @@ module control(
 					MemtoReg = 0;
 					Jump     = 2'b00;
 					ALU_ctrl = 4'b0000;
+					branch_type = 2'b00;
 				end
 			6'b000101:		// bne
 				begin
 					R_Ibar_type = 0;
-				
+					
+					branch_type = 2'b01;
 				end
 			6'b000111:		// bgtz
 				begin
 					R_Ibar_type = 0;
-				
+					
+					branch_type = 2'b10;
 				end
 			6'b000001:		// bgez
 				begin
 					R_Ibar_type = 0;
-				
+					
+					branch_type = 2'b11;
 				end
 			6'b100011:		// lw
 				begin
