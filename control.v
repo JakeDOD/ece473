@@ -181,19 +181,43 @@ module control(
 			6'b000101:		// bne
 				begin
 					R_Ibar_type = 0;
-					
+					RegDst   = 0;
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0000;
 					branch_type = 2'b01;
 				end
 			6'b000111:		// bgtz
 				begin
 					R_Ibar_type = 0;
-					
+					RegDst   = 0;
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0000;
 					branch_type = 2'b10;
 				end
 			6'b000001:		// bgez
 				begin
 					R_Ibar_type = 0;
-					
+					RegDst   = 0;
+					ALUSrc= 2'b10;		// SignExtImm
+					Branch   = 1;
+					MemRead  = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					MemtoReg = 0;
+					Jump     = 2'b00;
+					ALU_ctrl = 4'b0000;
 					branch_type = 2'b11;
 				end
 			6'b100011:		// lw
