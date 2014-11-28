@@ -11,7 +11,7 @@ module compare(
     wire   ZeroA = (A == 32'b0);
 
     assign EQ  = ( A == B);
-    assign NE  = ~EQ;
+    assign NE  = ~(A == B);
     assign GTZ = (~A[31] && ~ZeroA);
     assign GEZ = ~A[31];
 	

@@ -226,7 +226,7 @@ module control(
 					RegDst   = 1;		// Rt
 					ALUSrc= 2'b10;		// SignExtImm
 					Branch   = 1;
-					MemRead  = 0;
+					MemRead  = 1;
 					MemWrite = 0;
 					RegWrite = 1;		// Writing to Rt
 					MemtoReg = 1;		// Writing from memory to register

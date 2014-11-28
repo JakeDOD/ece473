@@ -3,7 +3,8 @@
 module ID_EX(
 	// Pipeline register control signals
 	input wire clock,
-	input wire reset,
+	input wire bubble,
+	input wire stall,
 	
 	// Control signal inputs
 	input wire R_Ibar_type_in,
@@ -79,7 +80,7 @@ module ID_EX(
 	end
 	
 	always @(posedge clock) begin
-		if (reset == 1'b1) begin
+		if (bubble == 1'b1) begin
 			RegDst_out <= 0;
 			ALU_ctrl_out <= 4'b0000;
 			ALUSrc_out <= 0;
@@ -101,6 +102,28 @@ module ID_EX(
 			shamt_out <= 5'b00000;
 			zero_ext_imm_out <= 32'h00000000;
 			upper_imm_out <= 32'h00000000;
+		end else if (stall == 1'b1) begin
+			RegDst_out <= RegDst_out;
+			ALU_ctrl_out  <= ALU_ctrl_out;
+			ALUSrc_out <= ALUSrc_out;
+			Branch_out <= Branch_out;
+			MemRead_out <= MemRead_out;
+			MemWrite_out <= MemWrite_out;
+			RegWrite_out <= RegWrite_out;
+			MemtoReg_out <= MemtoReg_out;
+			R_Ibar_type_out <= R_Ibar_type_out;
+			
+			pc_plus_4_out = pc_plus_4_out;
+			
+			ALUOperand1_out <= ALUOperand1_out;
+			ALUOperand2_out <= ALUOperand2_out;
+			sign_ext_imm_out <= sign_ext_imm_out;
+			RT_out <= RT_out;
+			RD_out <= RD_out;
+			RS_out <= RS_out;
+			shamt_out <= shamt_out;
+			zero_ext_imm_out <= zero_ext_imm_out;
+			upper_imm_out <= upper_imm_out;
 		end else begin
 			RegDst_out <= RegDst_in;
 			ALU_ctrl_out  <= ALU_ctrl_in;
