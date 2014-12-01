@@ -55,9 +55,9 @@ module branch_forwarding(
 		cmp_forwarda = 0;
 		cmp_forwardb = 0;
 		if (F_branch == 1'b1) begin
-			if (F_branch && (IF_ID_dstReg == F_RS || IF_ID_dstReg == F_RT)) begin
-				stall = 1;
-			end
+//			if (F_branch && (IF_ID_dstReg == F_RS || IF_ID_dstReg == F_RT)) begin
+//				stall = 1;
+//			end
 			if (ID_EX_dstReg == F_RS) begin
 				stall = 0;
 				cmp_forwarda = 1;
