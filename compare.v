@@ -1,18 +1,20 @@
 // file compare.v
 
 module compare(
-	 input  [31:0] A,
-    input  [31:0] B,
-    output EQ,
-    output NE,
-    output GTZ,
-    output GEZ);
+	input  [31:0] A,
+   input  [31:0] B,
+   output reg EQ,
+   output reg NE,
+   output reg GTZ,
+	output reg GEZ);
 
-    wire   ZeroA = (A == 32'b0);
+	wire   ZeroA = (A == 32'b0);
 
-    assign EQ  = ( A == B);
-    assign NE  = ~(A == B);
-    assign GTZ = (~A[31] && ~ZeroA);
-    assign GEZ = ~A[31];
+	always @(*) begin
+		EQ  = ( A == B);
+		NE  = ~(A == B);
+		GTZ = (~A[31] && ~ZeroA);
+		GEZ = ~A[31];
+	end
 	
 endmodule

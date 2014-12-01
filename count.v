@@ -11,7 +11,7 @@ module count(clock,reset,c0,c1,c2,c3);
 	integer count = 0;
 	integer tmp;
 	
-	always @(negedge clock) begin
+	always @(posedge clock) begin
 		if (reset == 1'b1) begin 
 			count <= 0;
 		end else if (reset == 1'b0) begin

@@ -1,6 +1,7 @@
 // file RAL_hazard
 
 module RAL_hazard(
+	input wire clock,
 	input wire EX_MEM_memRead,
 	input wire[4:0] EX_MEM_dstReg,
 	input wire[4:0] ID_EX_RS, ID_EX_RT,
@@ -12,10 +13,12 @@ module RAL_hazard(
 		RAL_hazard = 0;
 	end
 	
-	always @(*) begin
-		if (EX_MEM_memRead && (EX_MEM_dstReg == ID_EX_RS || EX_MEM_dstReg == ID_EX_RT)) begin
+	always @(negedge clock) begin
+		if (EX_MEM_memRead && EX_MEM_dstReg == ID_EX_RS) begin
 			RAL_hazard = 1;
-		end else begin
+		end else if (EX_MEM_memRead && EX_MEM_dstReg == ID_EX_RT) begin
+			RAL_hazard = 1;
+		end else if (!EX_MEM_memRead) begin
 			RAL_hazard = 0;
 		end
 		

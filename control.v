@@ -225,7 +225,7 @@ module control(
 					R_Ibar_type = 0;
 					RegDst   = 1;		// Rt
 					ALUSrc= 2'b10;		// SignExtImm
-					Branch   = 1;
+					Branch   = 0;
 					MemRead  = 1;
 					MemWrite = 0;
 					RegWrite = 1;		// Writing to Rt

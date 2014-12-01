@@ -3,7 +3,7 @@
 module EX_MEM(
 	// Pipeline register control signals
 	input wire clock,
-	input wire reset,
+	input wire bubble,
 	
 	// Control signal inputs
 	input wire MemtoReg_in,
@@ -47,7 +47,7 @@ module EX_MEM(
 	end
 	
 	always @(negedge clock) begin
-		if (reset == 1'b1) begin
+		if (bubble == 1'b1) begin
 			Branch_out <= 0;
 			MemRead_out <= 0;
 			MemWrite_out <= 0;
@@ -58,7 +58,19 @@ module EX_MEM(
 			ALU_zero_out <= 0;
 			ALU_result_out <= 32'h00000000;
 			Dst_Reg_out <= 5'b00000;
-		end else begin
+		end 
+/*		if (stall == 1'b1) begin
+			Branch_out <= Branch_out;
+			MemRead_out <= MemRead_out;
+			MemWrite_out <= MemWrite_out;
+			RegWrite_out <= RegWrite_out;
+			MemtoReg_out <= MemtoReg_out;
+			
+			branch_address_out <= branch_address_out;
+			ALU_zero_out <= ALU_zero_out;
+			ALU_result_out <= ALU_result_out;
+			Dst_Reg_out <= Dst_Reg_out;
+		end */else begin
 			Branch_out <= Branch_in;
 			MemRead_out <= MemRead_in;
 			MemWrite_out <= MemWrite_in;

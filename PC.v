@@ -8,7 +8,7 @@ module PC(
 	output reg[31:0] pc_out);
 	
 	initial begin
-		pc_out = 32'h00000000;
+		pc_out = 32'd0;
 	end
 	
 	always @(posedge clock) begin

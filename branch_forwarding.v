@@ -39,10 +39,23 @@ module branch_forwarding(
 	end
 	
 	always @(negedge clock) begin
+	
+/*		F_opcode = F_instr[31:26];
+		F_RS = F_instr[25:21];
+		F_RT = F_instr[20:16];
+		F_branch = ((F_opcode == 6'b000100) || (F_opcode == 6'b000101) || (F_opcode == 6'b000111) || (F_opcode == 6'b000001)) ? 1 : 0;
+		
+		IF_ID_opcode = IF_ID_instr[31:26];
+		IF_ID_RS = IF_ID_instr[25:21];
+		IF_ID_RT = IF_ID_instr[20:16];
+		IF_ID_RD = IF_ID_instr[15:11];
+		
+		IF_ID_dstReg = (IF_ID_opcode == 6'd0) ? IF_ID_RD : IF_ID_RT;
+*/		
 		cmp_forwarda = 0;
 		cmp_forwardb = 0;
 		if (F_branch == 1'b1) begin
-			if (IF_ID_dstReg == F_RS || IF_ID_dstReg == F_RT) begin
+			if (F_branch && (IF_ID_dstReg == F_RS || IF_ID_dstReg == F_RT)) begin
 				stall = 1;
 			end
 			if (ID_EX_dstReg == F_RS) begin
