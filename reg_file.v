@@ -14,12 +14,12 @@ module reg_file(
 	
 	reg [31:0] _data1, _data2,_dataDebug;
 	
-/*	initial begin
+	initial begin
 		for(i=0; i<32; i=i+1) begin
 			rf[i] = i;
 		end
 	end
-*/	
+	
 	always @(*) begin
 		if (read1 == 5'd0)
 			_data1 = 32'd0;

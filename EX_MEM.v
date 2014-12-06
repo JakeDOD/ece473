@@ -30,7 +30,8 @@ module EX_MEM(
 	output reg[31:0] branch_address_out,
 	output reg		  ALU_zero_out,
 	output reg[31:0] ALU_result_out,
-	output reg[4:0]  Dst_Reg_out);
+	output reg[4:0]  Dst_Reg_out,
+	output reg[31:0] RT_out);
 	
 	// Initialize all the outputs to 0
 	initial begin
@@ -44,6 +45,7 @@ module EX_MEM(
 		ALU_zero_out = 0;
 		ALU_result_out = 32'h00000000;
 		Dst_Reg_out = 5'b00000;
+		RT_out = 32'd0;
 	end
 	
 	always @(negedge clock) begin
@@ -58,6 +60,7 @@ module EX_MEM(
 			ALU_zero_out <= 0;
 			ALU_result_out <= 32'h00000000;
 			Dst_Reg_out <= 5'b00000;
+			RT_out <= 32'd0;
 		end 
 /*		if (stall == 1'b1) begin
 			Branch_out <= Branch_out;
@@ -81,6 +84,7 @@ module EX_MEM(
 			ALU_zero_out <= ALU_zero_in;
 			ALU_result_out <= ALU_result_in;
 			Dst_Reg_out <= Dst_Reg_in;
+			RT_out <= Read_data2_in;
 		end
 	end
 	

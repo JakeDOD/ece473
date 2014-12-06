@@ -170,6 +170,13 @@ applicable agreement for further details.
 		(text "Dst_Reg_out[4..0]" (rect 215 155 291 167)(font "Arial" ))
 		(line (pt 312 160)(pt 296 160)(line_width 3))
 	)
+	(port
+		(pt 312 176)
+		(output)
+		(text "RT_out[31..0]" (rect 0 0 55 12)(font "Arial" ))
+		(text "RT_out[31..0]" (rect 236 171 291 183)(font "Arial" ))
+		(line (pt 312 176)(pt 296 176)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 296 224)(line_width 1))
 	)

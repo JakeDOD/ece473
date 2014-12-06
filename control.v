@@ -238,9 +238,9 @@ module control(
 					R_Ibar_type = 0;
 					RegDst   = 0;
 					ALUSrc= 2'b10;		// SignExtImm
-					Branch   = 1;
+					Branch   = 0;
 					MemRead  = 0;
-					MemWrite = 0;
+					MemWrite = 1;
 					RegWrite = 0;
 					MemtoReg = 0;
 					Jump     = 2'b00;
