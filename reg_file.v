@@ -11,13 +11,20 @@ module reg_file(
 	
 	reg [31:0] rf [31:0];		// 32 registers 32 bits long
 	integer i;
+	integer x = 0;
 	
 	reg [31:0] _data1, _data2,_dataDebug;
 	
 	initial begin
 		for(i=0; i<32; i=i+1) begin
-			rf[i] = i;
+			if (i==29) begin 
+				x=32'hc8;
+			end else begin 
+				x=0; 
+			end
+			rf[i] = x;
 		end
+		//rf[29] = 200;			// init stack pointer
 	end
 	
 	always @(*) begin
