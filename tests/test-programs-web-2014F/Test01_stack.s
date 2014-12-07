@@ -36,9 +36,9 @@ loop:   j       loop		# Deadloop, End of program
 fun:	# This function overwrites $s0 and $s1
 	# We should save those on the stack
 	# This is PUSH'ing onto the stack
-	addi $sp,$sp,-4		# Adjust stack pointer
+	addi $sp,$sp,-1		# Adjust stack pointer
 	sw $s0,0($sp)		# Save $s0
-	addi $sp,$sp,-4		# Adjust stack pointer
+	addi $sp,$sp,-1		# Adjust stack pointer
 	sw $s1,0($sp)		# Save $s1
 
 	# Do the function math
@@ -58,9 +58,9 @@ fun:	# This function overwrites $s0 and $s1
 	# Restore saved register values from stack in opposite order
 	# This is POP'ing from the stack
 	lw $s1,0($sp)		# Restore $s1
-	addi $sp,$sp,4		# Adjust stack pointer
+	addi $sp,$sp,1		# Adjust stack pointer
 	lw $s0,0($sp)		# Restore $s0
-	addi $sp,$sp,4		# Adjust stack pointer
+	addi $sp,$sp,1		# Adjust stack pointer
 	
 	# Return from function
 	jr $ra			# Jump to addr stored in $ra
